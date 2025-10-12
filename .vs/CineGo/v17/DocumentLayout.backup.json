@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T09:01:38.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Program.cs",
+              "RelativeDocumentMoniker": "CineGo\\Program.cs",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Program.cs",
+              "RelativeToolTip": "CineGo\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T08:47:50.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CineGo\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CineGo\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T08:46:15.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "CineGo\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "CineGo\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T08:45:23.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T08:45:06.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T08:44:51.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T08:44:13.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T08:43:47.173Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
