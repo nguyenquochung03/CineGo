@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CineGo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef310d3c7434d6547d368e03a1dfd09ce67df841")]
 [assembly: System.Reflection.AssemblyProductAttribute("CineGo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CineGo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

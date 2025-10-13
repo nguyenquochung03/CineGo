@@ -1,3 +1,6 @@
+using CineGo.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace CineGo
 {
     public class Program
@@ -8,6 +11,10 @@ namespace CineGo
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<CineGoDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CineGoConnection")));
+
 
             var app = builder.Build();
 
