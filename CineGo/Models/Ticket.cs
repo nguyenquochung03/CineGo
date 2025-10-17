@@ -1,9 +1,15 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(OrderItemId))]
+    [Index(nameof(Status))]
+    [Index(nameof(TicketCode), IsUnique = true)]
+    [Index(nameof(CreatedAt))]
+    [Index(nameof(UsedAt))]
     public class Ticket
     {
         [Key]

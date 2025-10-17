@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authorization
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.Routing
+
+@{
+    Layout = null;
+    ViewData["Title"] = ViewData["Title"] ?? "Bảng điều khiển";
+
+    var user = Context.User;
+    var isAuthenticated = user.Identity?.IsAuthenticated ?? false;
+    var adminName = isAuthenticated ? user.FindFirstValue(ClaimTypes.Name) ?? "Admin" : "Quản trị viên";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Quản trị CineGo</title>
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/AdminLayout.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar admin-navbar px-4">
+        <button class="btn btn-outline-light me-3" id="sidebarToggle">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <span class="navbar-text text-white me-auto">Xin chào, <strong>@adminName</strong></span>
+
+        <form method="post" asp-area="Admin" asp-controller="AdminAuth" asp-action="Logout" class="m-0">
+            <button type="submit" class="btn btn-danger btn-sm">
+                <i class="bi bi-box-arrow-right"></i> Đăng xuất
+            </button>
+        </form>
+    </nav>
+
+    <!-- Sidebar -->
+    <nav class="admin-sidebar" id="sidebar">
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")"
+                   href="@Url.Action("Index", "Dashboard", new { area = "Admin" })">
+                    <i class="bi bi-speedometer2"></i> Bảng điều khiển
+                </a>
+            </li>
+
+            <!-- Gộp Region, City, Cinema -->
+            <li class="nav-item">
+                <a class="nav-link @(
+                   ViewContext.RouteData.Values["controller"]?.ToString() == "Hierarchy" ? "active" : ""
+        )"
+                   href="@Url.Action("Index", "Hierarchy", new { area = "Admin" })">
+                    <i class="bi bi-geo-alt-fill"></i> Quản lý Rạp
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Movie" ? "active" : "")"
+                   href="@Url.Action("Index", "Movie", new { area = "Admin" })">
+                    <i class="bi bi-camera-reels"></i> Quản lý Phim
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Order" ? "active" : "")"
+                   href="@Url.Action("Index", "Order", new { area = "Admin" })">
+                    <i class="bi bi-cart4"></i> Quản lý Đơn hàng
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Overlay mobile -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Nội dung chính -->
+    <main class="admin-main">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="admin-footer text-white text-center py-3">
+        <small>&copy; @DateTime.Now.Year <strong>CineGo</strong> — “Mang trải nghiệm điện ảnh đến gần bạn hơn”</small>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const body = document.body;
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const overlay = document.getElementById("sidebarOverlay");
+
+        sidebarToggle.addEventListener("click", () => {
+            if(window.innerWidth < 992){
+                body.classList.toggle("sidebar-open");
+            } else {
+                body.classList.toggle("sidebar-collapsed");
+            }
+        });
+
+        // Click overlay để đóng
+        overlay.addEventListener("click", () => {
+            body.classList.remove("sidebar-open");
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

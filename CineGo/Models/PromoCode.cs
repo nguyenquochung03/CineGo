@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(Code), IsUnique = true)]
+    [Index(nameof(IsActive))]
+    [Index(nameof(ValidFrom))]
+    [Index(nameof(ValidTo))]
+    [Index(nameof(Code), nameof(IsActive))]
     public class PromoCode
     {
         [Key]

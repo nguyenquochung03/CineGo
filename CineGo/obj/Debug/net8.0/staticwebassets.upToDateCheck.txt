@@ -1,5 +1,13 @@
+wwwroot\css\AdminError.css
+wwwroot\css\AdminLayout.css
+wwwroot\css\AdminLayoutLogin.css
+wwwroot\css\Adminlogin.css
+wwwroot\css\Hierarchy.css
+wwwroot\css\SeatMap.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\login_background.jpg
+wwwroot\js\SeatMap.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -58,3 +66,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\Hierarchy.js

@@ -55,6 +55,9 @@ namespace CineGo.Migrations
 
                     b.HasIndex("CityId");
 
+                    b.HasIndex("Name", "CityId")
+                        .IsUnique();
+
                     b.ToTable("Cinemas");
                 });
 
@@ -77,6 +80,9 @@ namespace CineGo.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("RegionId");
+
+                    b.HasIndex("Name", "RegionId")
+                        .IsUnique();
 
                     b.ToTable("Cities");
                 });
@@ -123,6 +129,17 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AgeLimit");
+
+                    b.HasIndex("Rating");
+
+                    b.HasIndex("ReleaseDate");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
+
+                    b.HasIndex("Title");
+
                     b.ToTable("Movies");
                 });
 
@@ -148,6 +165,9 @@ namespace CineGo.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MovieId");
+
+                    b.HasIndex("MovieId", "Order")
+                        .IsUnique();
 
                     b.ToTable("MoviePoster");
                 });
@@ -182,9 +202,13 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatedAt");
+
                     b.HasIndex("PromoCodeId");
 
                     b.HasIndex("ShowtimeId");
+
+                    b.HasIndex("Status");
 
                     b.HasIndex("UserId");
 
@@ -213,6 +237,10 @@ namespace CineGo.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
+
+                    b.HasIndex("TicketType");
+
+                    b.HasIndex("OrderId", "TicketType");
 
                     b.ToTable("OrderItems");
                 });
@@ -250,7 +278,13 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Method");
+
                     b.HasIndex("OrderId");
+
+                    b.HasIndex("ProviderTxnId");
+
+                    b.HasIndex("Status");
 
                     b.ToTable("Payments");
                 });
@@ -283,6 +317,13 @@ namespace CineGo.Migrations
 
                     b.HasIndex("PricingRuleId");
 
+                    b.HasIndex("SeatType");
+
+                    b.HasIndex("TicketType");
+
+                    b.HasIndex("PricingRuleId", "TicketType", "SeatType")
+                        .IsUnique();
+
                     b.ToTable("PricingDetails");
                 });
 
@@ -314,6 +355,13 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatedAt");
+
+                    b.HasIndex("IsActive");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("PricingRules");
                 });
 
@@ -336,6 +384,9 @@ namespace CineGo.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PricingRuleId");
+
+                    b.HasIndex("PricingRuleId", "DayName")
+                        .IsUnique();
 
                     b.ToTable("PricingRuleDays");
                 });
@@ -379,6 +430,17 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("IsActive");
+
+                    b.HasIndex("ValidFrom");
+
+                    b.HasIndex("ValidTo");
+
+                    b.HasIndex("Code", "IsActive");
+
                     b.ToTable("PromoCodes");
                 });
 
@@ -396,6 +458,9 @@ namespace CineGo.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Regions");
                 });
@@ -427,9 +492,16 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatedAt");
+
                     b.HasIndex("MovieId");
 
+                    b.HasIndex("Rating");
+
                     b.HasIndex("UserId");
+
+                    b.HasIndex("MovieId", "UserId")
+                        .IsUnique();
 
                     b.ToTable("Reviews");
                 });
@@ -463,7 +535,16 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Column");
+
+                    b.HasIndex("Label");
+
+                    b.HasIndex("Row");
+
                     b.HasIndex("TheaterId");
+
+                    b.HasIndex("TheaterId", "Row", "Column")
+                        .IsUnique();
 
                     b.ToTable("Seats");
                 });
@@ -500,6 +581,9 @@ namespace CineGo.Migrations
                     b.HasIndex("SeatId");
 
                     b.HasIndex("ShowtimeId");
+
+                    b.HasIndex("ShowtimeId", "SeatId")
+                        .IsUnique();
 
                     b.ToTable("SeatStatuses");
                 });
@@ -546,6 +630,13 @@ namespace CineGo.Migrations
 
                     b.HasIndex("TheaterId");
 
+                    b.HasIndex("Date", "MovieId");
+
+                    b.HasIndex("Date", "TheaterId");
+
+                    b.HasIndex("TheaterId", "MovieId", "Date", "StartTime")
+                        .IsUnique();
+
                     b.ToTable("Showtimes");
                 });
 
@@ -575,7 +666,14 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SeatType");
+
                     b.HasIndex("ShowtimeId");
+
+                    b.HasIndex("TicketType");
+
+                    b.HasIndex("ShowtimeId", "TicketType", "SeatType")
+                        .IsUnique();
 
                     b.ToTable("ShowtimePrices");
                 });
@@ -605,6 +703,9 @@ namespace CineGo.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
+
+                    b.HasIndex("Name", "CinemaId")
+                        .IsUnique();
 
                     b.ToTable("Theaters");
                 });
@@ -643,8 +744,17 @@ namespace CineGo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatedAt");
+
                     b.HasIndex("OrderItemId")
                         .IsUnique();
+
+                    b.HasIndex("Status");
+
+                    b.HasIndex("TicketCode")
+                        .IsUnique();
+
+                    b.HasIndex("UsedAt");
 
                     b.ToTable("Tickets");
                 });
@@ -689,6 +799,18 @@ namespace CineGo.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatedAt");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("Name");
+
+                    b.HasIndex("Phone")
+                        .IsUnique();
+
+                    b.HasIndex("Role");
 
                     b.ToTable("Users");
                 });

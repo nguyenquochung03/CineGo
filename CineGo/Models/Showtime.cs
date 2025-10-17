@@ -1,8 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(TheaterId))]
+    [Index(nameof(MovieId))]
+    [Index(nameof(PricingRuleId))]
+    [Index(nameof(Date), nameof(TheaterId))]
+    [Index(nameof(Date), nameof(MovieId))]
+    [Index(nameof(TheaterId), nameof(MovieId), nameof(Date), nameof(StartTime), IsUnique = true)]
     public class Showtime
     {
         [Key]

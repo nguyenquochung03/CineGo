@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(TheaterId))]
+    [Index(nameof(Row))]
+    [Index(nameof(Column))]
+    [Index(nameof(Label))]
+    [Index(nameof(TheaterId), nameof(Row), nameof(Column), IsUnique = true)]
     public class Seat
     {
         [Key]

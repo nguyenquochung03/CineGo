@@ -1,0 +1,55 @@
+﻿@using CineGo.DTO.Common
+@model PagedResult<CineGo.DTO.CityDTO>
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Danh sách thành phố</h5>
+        <button class="btn btn-sm btn-primary" onclick="addCity(window.currentRegionId)">+ Thêm thành phố</button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr><th>Tên thành phố</th><th class="text-end">Hành động</th></tr>
+                </thead>
+                <tbody>
+                    @if (Model.Items != null && Model.Items.Any())
+                    {
+                        @foreach (var c in Model.Items)
+                        {
+                            <tr onclick="loadCinemas(@c.Id, '@c.Name')" style="cursor:pointer;">
+                                <td>@c.Name</td>
+                                <td class="text-end">
+                                    <button class="btn btn-warning btn-sm"
+                                            onclick="event.stopPropagation(); editCity(@c.Id, '@c.Name', window.currentRegionId)">
+                                        <i class="bi bi-pencil-fill me-1"></i> Sửa
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="event.stopPropagation(); deleteCity(@c.Id)">
+                                        <i class="bi bi-trash-fill me-1"></i> Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3" class="text-center text-muted">Chưa có thành phố nào.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- Phân trang -->
+        <div class="mt-3 text-center">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <button class="btn btn-sm @(i == Model.Page ? "btn-danger" : "btn-outline-primary")"
+                        onclick="loadCities(window.currentRegionId, window.currentRegionName, @i)">
+                    @i
+                </button>
+            }
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@model dynamic
+@using CineGo.DTO.Seat
+
+<link rel="stylesheet" href="~/css/SeatMap.css" />
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+        <h5 class="mb-0">💺 Sơ đồ chỗ ngồi phòng: <strong>@Model.TheaterName</strong></h5>
+    </div>
+
+    <div class="card-body">
+        <!-- Legend / Chú thích -->
+        <div class="seat-legend d-flex gap-3 mb-3 justify-content-center flex-wrap">
+            <div class="legend-item d-flex align-items-center gap-1">
+                <div class="seat bg-secondary"></div>
+                <span>Chưa có chỗ ngồi</span>
+            </div>
+            <div class="legend-item d-flex align-items-center gap-1">
+                <div class="seat bg-danger"></div>
+                <span>Standard</span>
+            </div>
+            <div class="legend-item d-flex align-items-center gap-1">
+                <div class="seat bg-warning"></div>
+                <span>VIP</span>
+            </div>
+        </div>
+
+        <!-- Seat Map Container (cuộn ngang) -->
+        <div id="seat-map-container">
+            <div class="seat-map-wrapper">
+                <div id="seat-map">
+                    <!-- Header cột -->
+                    <div class="seat-row header-row">
+                        <div class="seat-label corner"></div> <!-- góc trống -->
+                        @for (int c = 1; c <= Model.Columns; c++)
+                        {
+                            <div class="seat-label">@c</div>
+                        }
+                    </div>
+
+                    @for (int r = 1; r <= Model.Rows; r++)
+                    {
+                        <div class="seat-row">
+                            <!-- Label hàng -->
+                            <div class="seat-label">@((char)('A' + r - 1))</div>
+
+                            @for (int c = 1; c <= Model.Columns; c++)
+                            {
+                                var seat = ((List<SeatDTO>)Model.Seats).FirstOrDefault(s => s.Row == r && s.Column == c);
+                                string seatColor = "bg-secondary";
+                                string seatType = "";
+                                string seatLabel = "";
+
+                                if (seat != null)
+                                {
+                                    seatType = seat.Type;
+                                    seatLabel = seat.Label;
+                                    seatColor = seat.Type.ToLower() == "vip" ? "bg-warning" : "bg-danger";
+                                }
+
+                                <div class="seat @seatColor"
+                                     data-id="@(seat?.Id ?? 0)"
+                                     data-row="@r" data-column="@c" data-type="@seatType" data-label="@seatLabel"
+                                     onclick="handleSeatClick(this)">
+                                    @seatLabel
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal thêm/sửa chỗ ngồi -->
+<div class="modal fade" id="seatModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Cập nhật chỗ ngồi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="seatRow">
+                <input type="hidden" id="seatColumn">
+                <div class="mb-3">
+                    <label for="seatType" class="form-label">Loại chỗ ngồi</label>
+                    <select id="seatType" class="form-select">
+                        <option value="Standard">Standard</option>
+                        <option value="VIP">VIP</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="seatLabel" class="form-label">Nhãn chỗ ngồi</label>
+                    <input type="text" id="seatLabel" class="form-control" maxlength="10">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="saveSeat()">Lưu</button>
+                <button type="button" class="btn btn-danger" onclick="deleteSeatModal()">Xóa</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(OrderId))]
+    [Index(nameof(Status))]
+    [Index(nameof(Method))]
+    [Index(nameof(ProviderTxnId), IsUnique = false)]
     public class Payment
     {
         [Key]

@@ -1,8 +1,11 @@
 ﻿using CineGo.Models;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace CineGo.Models
 {
+    [Index(nameof(PricingRuleId))]
+    [Index(nameof(PricingRuleId), nameof(DayName), IsUnique = true)]
     public class PricingRuleDay
     {
         [Key]

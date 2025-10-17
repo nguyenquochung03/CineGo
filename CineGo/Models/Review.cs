@@ -1,9 +1,15 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(MovieId))]
+    [Index(nameof(UserId))]
+    [Index(nameof(CreatedAt))]
+    [Index(nameof(Rating))]
+    [Index(nameof(MovieId), nameof(UserId), IsUnique = true)]
     public class Review
     {
         [Key]

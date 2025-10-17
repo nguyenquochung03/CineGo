@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = ViewData["Title"] ?? "Lỗi";
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center text-center" style="height:80vh;">
+    <h1 class="display-3 text-danger fw-bold">@ViewData["Title"]</h1>
+    <p class="lead text-muted mb-4">@ViewData["Message"]</p>
+
+    <a href="/" class="btn btn-lg btn-primary rounded-pill px-4 shadow">
+        <i class="bi bi-house-door-fill me-2"></i> Về trang chủ
+    </a>
+</div>

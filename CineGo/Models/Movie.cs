@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(Title))]
+    [Index(nameof(Slug), IsUnique = true)]
+    [Index(nameof(ReleaseDate))]
+    [Index(nameof(Rating))]
+    [Index(nameof(AgeLimit))]
     public class Movie
     {
         [Key]

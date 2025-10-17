@@ -1,9 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json;
 
 namespace CineGo.Models
 {
+    [Index(nameof(Name), IsUnique = true)]
+    [Index(nameof(IsActive))]
+    [Index(nameof(CreatedAt))]
     public class PricingRule
     {
         [Key]

@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(UserId))]
+    [Index(nameof(ShowtimeId))]
+    [Index(nameof(Status))]
+    [Index(nameof(CreatedAt))]
+    [Index(nameof(PromoCodeId))]
     public class Order
     {
         [Key]

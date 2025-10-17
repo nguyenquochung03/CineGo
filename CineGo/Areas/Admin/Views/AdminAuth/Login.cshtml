@@ -1,0 +1,62 @@
+﻿@model CineGo.DTO.User.UserLoginDTO
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Đăng nhập Quản trị viên";
+}
+
+<link rel="stylesheet" href="~/css/Adminlogin.css" />
+
+<div class="login-page">
+    <div class="login-container">
+        <div class="text-center login-banner">
+            <h1>Chào mừng đến với trang quản trị CineGo</h1>
+            <p>Quản lý rạp chiếu phim dễ dàng, trực quan và hiệu quả</p>
+        </div>
+
+        <div class="login-form-wrapper">
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+            {
+                <div id="errorAlert" class="alert alert-danger text-center mb-4 rounded-3 shadow-sm" style="display:@(ViewBag.Error != null ? "block" : "none")">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i> @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Login" method="post" novalidate>
+                <h3 class="mb-4">Đăng nhập</h3>
+
+                <div class="mb-3 position-relative">
+                    <span class="position-absolute top-50 translate-middle-y ms-3 text-muted">
+                        <i class="bi bi-envelope-fill"></i>
+                    </span>
+                    <input asp-for="Email" class="form-control form-control-lg ps-5" placeholder="Nhập email của bạn" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4 position-relative">
+                    <span class="position-absolute top-50 translate-middle-y ms-3 text-muted">
+                        <i class="bi bi-lock-fill"></i>
+                    </span>
+                    <input asp-for="Password" type="password" class="form-control form-control-lg ps-5" placeholder="Nhập mật khẩu" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-lg w-100">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Đăng nhập
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const errorAlert = document.getElementById('errorAlert');
+        if (errorAlert) {
+            setTimeout(() => {
+                errorAlert.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+}

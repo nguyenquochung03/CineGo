@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "Quản lý hệ thống rạp";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Hierarchy.css" />
+
+<div class="container-fluid mt-3">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" id="breadcrumb">
+            <li class="breadcrumb-item active">Khu vực</li>
+        </ol>
+    </nav>
+
+    <!-- Khu vực động -->
+    <div id="skeleton-container"></div>
+    <div id="content-area"></div>
+</div>
+
+<!-- ===== MODALS ===== -->
+<!-- Region Modal -->
+<div class="modal fade" id="regionModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="regionModalTitle">Thêm khu vực</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="regionForm">
+                    <input type="hidden" id="regionId">
+                    <div class="mb-3">
+                        <label for="regionName" class="form-label">Tên khu vực</label>
+                        <input type="text" class="form-control" id="regionName" placeholder="Nhập tên khu vực">
+                        <div id="regionError" class="text-danger mt-1"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="regionSaveBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- City Modal -->
+<div class="modal fade" id="cityModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="cityModalTitle">Thêm thành phố</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="cityId">
+                <input type="hidden" id="cityRegionId">
+                <div class="mb-3">
+                    <label class="form-label">Tên thành phố</label>
+                    <input type="text" class="form-control" id="cityName" placeholder="Nhập tên thành phố">
+                    <div id="cityError" class="text-danger mt-1"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="citySaveBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cinema Modal -->
+<div class="modal fade" id="cinemaModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="cinemaModalTitle">Thêm rạp</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="cinemaId">
+                <input type="hidden" id="cinemaCityId">
+                <div class="mb-3">
+                    <label class="form-label">Tên rạp</label>
+                    <input type="text" class="form-control" id="cinemaName" placeholder="Nhập tên rạp">
+                    <div id="cinemaError" class="text-danger mt-1"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Địa chỉ</label>
+                    <input type="text" class="form-control" id="cinemaAddress" placeholder="Nhập địa chỉ">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="cinemaSaveBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Theater Modal -->
+<div class="modal fade" id="theaterModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="theaterModalTitle">Thêm phòng chiếu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="theaterId">
+                <input type="hidden" id="theaterCinemaId">
+                <div class="mb-3">
+                    <label class="form-label">Tên phòng</label>
+                    <input type="text" class="form-control" id="theaterName" placeholder="Nhập tên phòng">
+                    <div id="theaterError" class="text-danger mt-1"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Số hàng</label>
+                    <input type="number" class="form-control" id="theaterRows" min="1">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Số cột</label>
+                    <input type="number" class="form-control" id="theaterCols" min="1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button class="btn btn-primary" id="theaterSaveBtn">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Hierarchy.js"></script>
+    <script src="~/js/SeatMap.js"></script>
+}

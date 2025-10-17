@@ -1,0 +1,73 @@
+﻿/* Background tổng thể */
+.admin-error-page {
+    background: url('/images/login_background.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 86vh;
+    padding: 1rem;
+}
+
+/* Card lỗi */
+.admin-error-card {
+    max-width: 500px;
+    width: 100%;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+    /* Icon lỗi */
+    .admin-error-card .bi-exclamation-triangle-fill {
+        font-size: 4rem;
+    }
+
+    /* Button hover */
+    .admin-error-card .btn-warning:hover {
+        background-color: #ffb84d !important;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+/* Responsive text */
+@media (max-width: 768px) {
+    .admin-error-card {
+        padding: 2rem 1.5rem;
+    }
+
+        .admin-error-card h1 {
+            font-size: 2.5rem;
+        }
+
+        .admin-error-card p {
+            font-size: 1.1rem;
+        }
+}
+
+@media (max-width: 576px) {
+    .admin-error-card {
+        padding: 1.5rem 1rem;
+    }
+
+        .admin-error-card h1 {
+            font-size: 2rem;
+        }
+
+        .admin-error-card p {
+            font-size: 1rem;
+        }
+
+        .admin-error-card .bi-exclamation-triangle-fill {
+            font-size: 3rem;
+        }
+
+        .admin-error-card .btn-warning {
+            font-size: 0.9rem;
+            padding: 0.6rem 1rem;
+        }
+}

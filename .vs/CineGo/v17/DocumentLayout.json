@@ -1,54 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\models\\cinegodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\models\\cinegodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\my files\\codes\\.net\\mvc\\cinego\\cinego\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Program.cs",
-              "RelativeDocumentMoniker": "CineGo\\Program.cs",
-              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Program.cs",
-              "RelativeToolTip": "CineGo\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T10:09:57.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CineGoDbContext.cs",
-              "DocumentMoniker": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Models\\CineGoDbContext.cs",
-              "RelativeDocumentMoniker": "CineGo\\Models\\CineGoDbContext.cs",
-              "ToolTip": "C:\\My Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Models\\CineGoDbContext.cs",
-              "RelativeToolTip": "CineGo\\Models\\CineGoDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T10:08:12.286Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

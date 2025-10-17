@@ -1,0 +1,67 @@
+﻿/* === Tổng thể === */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffaf7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Navbar === */
+.admin-navbar {
+    background: linear-gradient(135deg, #ff7f50, #ff4500);
+}
+
+    .admin-navbar .navbar-brand {
+        color: #fff !important;
+        font-size: 1.25rem;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .admin-navbar .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .admin-navbar .nav-link:hover,
+        .admin-navbar .dropdown-item:hover {
+            color: #ffe6cc !important;
+        }
+
+/* === Main content === */
+.admin-content {
+    flex: 1;
+    min-height: 80vh;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* === Footer === */
+.admin-footer {
+    background: linear-gradient(135deg, #ff7f50, #ff4500);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* === Hiệu ứng === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .admin-navbar .navbar-brand {
+        font-size: 1rem;
+    }
+}

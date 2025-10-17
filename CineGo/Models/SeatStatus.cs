@@ -1,8 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(ShowtimeId))]
+    [Index(nameof(SeatId))]
+    [Index(nameof(LockedBy))]
+    [Index(nameof(ShowtimeId), nameof(SeatId), IsUnique = true)]
     public class SeatStatus
     {
         [Key]

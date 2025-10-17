@@ -1,8 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
+    [Index(nameof(Email), IsUnique = true)]
+    [Index(nameof(Phone), IsUnique = true)]
+    [Index(nameof(Name))]
+    [Index(nameof(Role))]
+    [Index(nameof(CreatedAt))]
     public class User
     {
         [Key]
