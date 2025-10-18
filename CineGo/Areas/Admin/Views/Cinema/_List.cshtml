@@ -1,10 +1,11 @@
 ﻿@using CineGo.DTO.Common
 @model PagedResult<CineGo.DTO.CinemaDTO>
+@using System.Web
 
 <div class="card shadow-sm">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Danh sách rạp chiếu</h5>
-        <button class="btn btn-sm btn-primary" onclick="addCinema(window.currentCityId)">+ Thêm rạp</button>
+        <button class="btn btn-sm btn-primary" onclick="addCinema(window.currentCityId)"><i class="bi bi-plus-circle me-1"></i> Thêm rạp</button>
     </div>
 
     <div class="card-body">
@@ -12,9 +13,10 @@
             <table class="table table-striped align-middle">
                 <thead>
                     <tr>
-                        <th>Tên rạp</th>
-                        <th>Địa chỉ</th>
-                        <th class="text-end">Hành động</th>
+                        <th style="width: 20%;">Tên rạp</th>
+                        <th style="width: 30%;">Địa chỉ</th>
+                        <th style="width: 35%;">Tiện ích</th>
+                        <th class="text-end" style="width: 15%;">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,9 +27,25 @@
                             <tr onclick="loadTheaters(@c.Id, '@c.Name')" style="cursor:pointer;">
                                 <td>@c.Name</td>
                                 <td>@c.Address</td>
+                                <td>
+                                    @if (!string.IsNullOrWhiteSpace(c.Amenities))
+                                    {
+                                        <span class="amenities-text" title="@c.Amenities">@c.Amenities</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted fst-italic">Không có</span>
+                                    }
+                                </td>
                                 <td class="text-end">
                                     <button class="btn btn-warning btn-sm"
-                                            onclick="event.stopPropagation(); editCinema(@c.Id, '@c.Name', '@c.Address', window.currentCityId)">
+                                            onclick="event.stopPropagation(); editCinema(
+                                            @c.Id,
+                                            '@Html.Raw(HttpUtility.JavaScriptStringEncode(c.Name))',
+                                            '@Html.Raw(HttpUtility.JavaScriptStringEncode(c.Address))',
+                                            '@Html.Raw(HttpUtility.JavaScriptStringEncode(c.Amenities))',
+                                            window.currentCityId
+                                        )">
                                         <i class="bi bi-pencil-fill me-1"></i>Sửa
                                     </button>
                                     <button class="btn btn-danger btn-sm"
@@ -60,3 +78,15 @@
         </div>
     </div>
 </div>
+
+<style>
+    .amenities-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-width: 100%;
+    }
+</style>

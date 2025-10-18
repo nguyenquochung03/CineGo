@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Movie\" />
+    <Folder Include="wwwroot\uploads\movies\" />
   </ItemGroup>
 
 </Project>

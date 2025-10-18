@@ -2,7 +2,7 @@
 body, .admin-main {
     color: #fff;
     font-family: "Segoe UI", Roboto, sans-serif;
-    background-color: #1A1A1A; /* nền tối để nổi bật màu đỏ-cam */
+    background-color: #1A1A1A;
 }
 
 /* ===== BREADCRUMB ===== */
@@ -79,7 +79,6 @@ table {
     width: 100%;
     min-width: 400px;
     border-collapse: collapse;
-    background: #fff;
 }
 
     table thead {
@@ -146,6 +145,9 @@ table {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.25rem;
+    border-bottom: 2px solid #e64a19;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
 }
 
     .modal-header .btn-close {

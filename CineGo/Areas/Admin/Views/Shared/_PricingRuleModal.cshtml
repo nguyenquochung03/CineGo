@@ -1,0 +1,37 @@
+﻿<div class="modal fade" id="pricingRuleModal" tabindex="-1" aria-labelledby="ruleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ruleModalLabel">Tạo / Sửa Quy Tắc Giá</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="pricingRuleForm" class="needs-validation" novalidate>
+                    <input type="hidden" id="ruleId" />
+                    <div class="mb-3">
+                        <label for="ruleName" class="form-label">Tên Quy Tắc</label>
+                        <input type="text" class="form-control" id="ruleName" required>
+                        <div class="invalid-feedback">Vui lòng nhập Tên Quy Tắc.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ruleDescription" class="form-label">Mô Tả</label>
+                        <textarea class="form-control" id="ruleDescription" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ruleRuntime" class="form-label">Thời Lượng (Phút)</label>
+                        <input type="number" class="form-control" id="ruleRuntime" required min="1" step="1">
+                        <div class="invalid-feedback">Thời lượng phải lớn hơn 0.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="ruleIsActive">
+                        <label class="form-check-label" for="ruleIsActive">Đang Áp Dụng</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="ruleSaveBtn">Lưu Thay Đổi</button>
+            </div>
+        </div>
+    </div>
+</div>

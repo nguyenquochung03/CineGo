@@ -136,18 +136,29 @@ namespace CineGo.Services
 
         public async Task<ApiResponse> DeleteAsync(int id)
         {
-            var theater = await _context.Theaters.Include(t => t.Seats).Include(t => t.Showtimes)
+            // Load theater kèm theo Seats và TheaterShowtimes
+            var theater = await _context.Theaters
+                .Include(t => t.Seats)
+                .Include(t => t.TheaterShowtimes)
+                    .ThenInclude(ts => ts.Showtime)
                 .FirstOrDefaultAsync(t => t.Id == id);
 
             if (theater == null)
                 return ApiResponse.ErrorResponse(404, "Theater không tồn tại.");
 
-            if ((theater.Seats != null && theater.Seats.Any()) ||
-                (theater.Showtimes != null && theater.Showtimes.Any()))
+            // Kiểm tra xem có ghế hoặc suất chiếu liên kết không
+            bool hasSeats = theater.Seats != null && theater.Seats.Any();
+            bool hasShowtimes = theater.TheaterShowtimes != null && theater.TheaterShowtimes.Any();
+
+            if (hasSeats || hasShowtimes)
             {
-                return ApiResponse.ErrorResponse(400, "Không thể xóa phòng chiếu có ghế hoặc suất chiếu.");
+                return ApiResponse.ErrorResponse(
+                    400,
+                    "Không thể xóa phòng chiếu có ghế hoặc suất chiếu."
+                );
             }
 
+            // Xóa theater
             _context.Theaters.Remove(theater);
             await _context.SaveChangesAsync();
 

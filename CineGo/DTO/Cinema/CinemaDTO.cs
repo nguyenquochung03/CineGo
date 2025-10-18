@@ -16,5 +16,6 @@ namespace CineGo.DTO
 
         [Required(ErrorMessage = "Thành phố không được để trống.")]
         public int CityId { get; set; }
+        public string? Amenities { get; set; }
     }
 }

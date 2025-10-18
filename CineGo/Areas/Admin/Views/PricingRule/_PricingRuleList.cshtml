@@ -1,0 +1,95 @@
+﻿@using CineGo.DTO.Common
+@using CineGo.DTO.PricingRule
+@model PagedResult<PricingRuleDTO>
+
+<div>
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Danh sách quy tắc giá</h5>
+        <button class="btn btn-sm btn-primary" onclick="openRuleModal()">
+            <i class="bi bi-plus-circle me-1"></i> Thêm quy tắc
+        </button>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Tên quy tắc</th>
+                        <th>Mô tả</th>
+                        <th>Thời lượng (phút)</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày tạo</th>
+                        <th class="text-end">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Items != null && Model.Items.Any())
+                    {
+                        @foreach (var r in Model.Items)
+                        {
+                            var safeName = r.Name?.Replace("'", "\\'") ?? "";
+                            var safeDesc = r.Description?.Replace("'", "\\'") ?? "";
+
+                            <tr onclick="loadPricingDetails(@r.Id, '@safeName')" style="cursor:pointer;">
+                                <td>@r.Name</td>
+                                <td>@(string.IsNullOrWhiteSpace(r.Description) ? "—" : r.Description)</td>
+                                <td>@r.Runtime</td>
+                                <td>
+                                    <span class="badge @(r.IsActive ? "bg-success" : "bg-danger")">
+                                        @(r.IsActive ? "Áp dụng" : "Ngừng")
+                                    </span>
+                                </td>
+                                <td>@r.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td class="text-end text-nowrap">
+                                    <button class="btn btn-info btn-sm me-1 text-white"
+                                            style="border: none;"
+                                            onclick="event.stopPropagation(); loadPricingDetails(@r.Id, '@safeName')"
+                                            title="Chi tiết giá">
+                                        <i class="bi bi-cash-stack me-1"></i> Giá
+                                    </button>
+
+                                    <button class="btn btn-red-orange btn-sm me-1 text-white"
+                                            onclick="event.stopPropagation(); loadPricingRuleDays(@r.Id, '@safeName')"
+                                            title="Ngày áp dụng">
+                                        <i class="bi bi-calendar-week me-1"></i> Ngày
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm me-1 text-white"
+                                            onclick="event.stopPropagation(); openRuleModal(@r.Id, '@safeName', '@safeDesc', @r.Runtime, @r.IsActive.ToString().ToLower())"
+                                            title="Chỉnh sửa">
+                                        <i class="bi bi-pencil-fill me-1"></i> Sửa
+                                    </button>
+                                    <button class="btn btn-danger btn-sm"
+                                            onclick="event.stopPropagation(); deletePricingRule(@r.Id)"
+                                            title="Xóa">
+                                        <i class="bi bi-trash-fill me-1"></i> Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-3">
+                                <i class="bi bi-info-circle me-1"></i> Chưa có quy tắc giá nào.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phân trang -->
+        <div class="mt-3 text-center">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <button class="btn btn-sm @(i == Model.Page ? "btn-danger" : "btn-outline-primary")"
+                        onclick="loadPricingRules(@i)">
+                    @i
+                </button>
+            }
+        </div>
+    </div>
+</div>

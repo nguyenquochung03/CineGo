@@ -22,14 +22,14 @@ namespace CineGo.Models
 
         [Required(ErrorMessage = "Slug không được để trống")]
         [StringLength(200, ErrorMessage = "Slug không được vượt quá 200 ký tự")]
-        public string Slug { get; set; } = null!; // dùng cho URL thân thiện
+        public string Slug { get; set; } = null!;
 
         [Range(1, 600, ErrorMessage = "Thời lượng phim phải từ 1 đến 600 phút")]
         public int Runtime { get; set; }
 
         [Required(ErrorMessage = "Xếp hạng phim không được để trống")]
         [StringLength(10, ErrorMessage = "Xếp hạng phim không được vượt quá 10 ký tự")]
-        public string Rating { get; set; } = null!; // ví dụ: "PG-13", "R"
+        public string Rating { get; set; } = null!;
 
         [Range(0, 21, ErrorMessage = "Giới hạn tuổi phải từ 0 đến 21")]
         public int AgeLimit { get; set; }

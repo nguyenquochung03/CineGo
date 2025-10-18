@@ -52,6 +52,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGllcmFyY2h5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Movie/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTW92aWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Movie/_MovieFormPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTW92aWVcX01vdmllRm9ybVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/PricingDetail/_PricingDetailList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2luZ0RldGFpbFxfUHJpY2luZ0RldGFpbExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/PricingRuleDay/_PricingRuleDayList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2luZ1J1bGVEYXlcX1ByaWNpbmdSdWxlRGF5TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/PricingRule/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2luZ1J1bGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/PricingRule/_PricingRuleList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2luZ1J1bGVcX1ByaWNpbmdSdWxlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Region/_List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVnaW9uXF9MaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,8 +92,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Shared/_PricingDetailModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9QcmljaW5nRGV0YWlsTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Shared/_PricingRuleDayModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9QcmljaW5nUnVsZURheU1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Shared/_PricingRuleModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9QcmljaW5nUnVsZU1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Shared/_ShowtimeModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaG93dGltZU1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Showtime/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvd3RpbWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Theater/_List.cshtml]

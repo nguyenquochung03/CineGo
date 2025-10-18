@@ -4,12 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
-    [Index(nameof(TheaterId))]
     [Index(nameof(MovieId))]
     [Index(nameof(PricingRuleId))]
-    [Index(nameof(Date), nameof(TheaterId))]
     [Index(nameof(Date), nameof(MovieId))]
-    [Index(nameof(TheaterId), nameof(MovieId), nameof(Date), nameof(StartTime), IsUnique = true)]
+    [Index(nameof(Date), nameof(PricingRuleId))]
     public class Showtime
     {
         [Key]
@@ -33,12 +31,6 @@ namespace CineGo.Models
 
         public bool IsWeekend { get; set; }
 
-        // Quan hệ đến Theater
-        [Required]
-        [ForeignKey(nameof(Theater))]
-        public int TheaterId { get; set; }
-        public Theater Theater { get; set; } = null!;
-
         // Quan hệ đến Movie
         [Required]
         [ForeignKey(nameof(Movie))]
@@ -59,5 +51,8 @@ namespace CineGo.Models
 
         // Quan hệ 1:N — Một suất chiếu có nhiều trạng thái ghế (SeatStatuses)
         public ICollection<SeatStatus>? SeatStatuses { get; set; }
+
+        // Quan hệ N:N với Theater
+        public ICollection<TheaterShowtime> TheaterShowtimes { get; set; } = new List<TheaterShowtime>();
     }
 }

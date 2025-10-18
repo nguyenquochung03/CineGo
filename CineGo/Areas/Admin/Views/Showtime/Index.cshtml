@@ -1,0 +1,52 @@
+﻿@page
+@model CineGo.Areas.Admin.Views.Showtime.IndexModel
+@{
+}
+@* File: /Areas/Admin/Views/Showtime/Index.cshtml *@
+@{
+    ViewData["Title"] = "Quản lý Suất chiếu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Showtime.css" />
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" id="breadcrumb">
+        @* Breadcrumb sẽ được JS cập nhật *@
+    </ol>
+</nav>
+
+<div class="mb-3">
+    <div class="row g-2">
+        <div class="col-md-3">
+            <input type="date" id="filterDate" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="time" id="filterStartTime" class="form-control" placeholder="Giờ bắt đầu" />
+        </div>
+        <div class="col-md-2">
+            <input type="time" id="filterEndTime" class="form-control" placeholder="Giờ kết thúc" />
+        </div>
+        <div class="col-md-3">
+            <select id="filterMovie" class="form-select">
+                <option value="">-- Chọn Phim --</option>
+                @* Thêm JS load Movie list nếu cần *@
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" onclick="applyFilters()">Tìm kiếm</button>
+        </div>
+    </div>
+</div>
+
+<div id="content-area" class="card shadow mb-4">
+    @* Nội dung danh sách Showtimes / Prices sẽ load vào đây *@
+</div>
+
+@* Modals *@
+@await Html.PartialAsync("_ShowtimeModal")
+@await Html.PartialAsync("_ShowtimePriceModal")
+
+@section Scripts {
+    <script src="~/js/Showtime.js"></script>
+}

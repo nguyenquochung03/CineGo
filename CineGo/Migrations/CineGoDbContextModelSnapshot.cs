@@ -169,7 +169,7 @@ namespace CineGo.Migrations
                     b.HasIndex("MovieId", "Order")
                         .IsUnique();
 
-                    b.ToTable("MoviePoster");
+                    b.ToTable("MoviePosters");
                 });
 
             modelBuilder.Entity("CineGo.Models.Order", b =>
@@ -619,23 +619,15 @@ namespace CineGo.Migrations
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
-                    b.Property<int>("TheaterId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MovieId");
 
                     b.HasIndex("PricingRuleId");
 
-                    b.HasIndex("TheaterId");
-
                     b.HasIndex("Date", "MovieId");
 
-                    b.HasIndex("Date", "TheaterId");
-
-                    b.HasIndex("TheaterId", "MovieId", "Date", "StartTime")
-                        .IsUnique();
+                    b.HasIndex("Date", "PricingRuleId");
 
                     b.ToTable("Showtimes");
                 });
@@ -708,6 +700,21 @@ namespace CineGo.Migrations
                         .IsUnique();
 
                     b.ToTable("Theaters");
+                });
+
+            modelBuilder.Entity("CineGo.Models.TheaterShowtime", b =>
+                {
+                    b.Property<int>("TheaterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShowtimeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TheaterId", "ShowtimeId");
+
+                    b.HasIndex("ShowtimeId");
+
+                    b.ToTable("TheaterShowtimes");
                 });
 
             modelBuilder.Entity("CineGo.Models.Ticket", b =>
@@ -988,17 +995,9 @@ namespace CineGo.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("CineGo.Models.Theater", "Theater")
-                        .WithMany("Showtimes")
-                        .HasForeignKey("TheaterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Movie");
 
                     b.Navigation("PricingRule");
-
-                    b.Navigation("Theater");
                 });
 
             modelBuilder.Entity("CineGo.Models.ShowtimePrice", b =>
@@ -1021,6 +1020,25 @@ namespace CineGo.Migrations
                         .IsRequired();
 
                     b.Navigation("Cinema");
+                });
+
+            modelBuilder.Entity("CineGo.Models.TheaterShowtime", b =>
+                {
+                    b.HasOne("CineGo.Models.Showtime", "Showtime")
+                        .WithMany("TheaterShowtimes")
+                        .HasForeignKey("ShowtimeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CineGo.Models.Theater", "Theater")
+                        .WithMany("TheaterShowtimes")
+                        .HasForeignKey("TheaterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Showtime");
+
+                    b.Navigation("Theater");
                 });
 
             modelBuilder.Entity("CineGo.Models.Ticket", b =>
@@ -1096,13 +1114,15 @@ namespace CineGo.Migrations
                     b.Navigation("SeatStatuses");
 
                     b.Navigation("ShowtimePrices");
+
+                    b.Navigation("TheaterShowtimes");
                 });
 
             modelBuilder.Entity("CineGo.Models.Theater", b =>
                 {
                     b.Navigation("Seats");
 
-                    b.Navigation("Showtimes");
+                    b.Navigation("TheaterShowtimes");
                 });
 
             modelBuilder.Entity("CineGo.Models.User", b =>

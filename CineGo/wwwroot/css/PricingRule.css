@@ -1,0 +1,239 @@
+﻿/* ===== BODY & BREADCRUMB ===== */
+body, .admin-main {
+    background-color: #1A1A1A;
+    color: #fff;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.breadcrumb {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+    .breadcrumb a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+        .breadcrumb a:hover {
+            color: #ffe08a;
+        }
+
+.breadcrumb-item.active {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #fff;
+    content: "\276F";
+}
+
+/* ===== CARD ===== */
+.card {
+    background: rgba(255,255,255,0.95);
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background: linear-gradient(90deg, #FF7043, #FF3D00);
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .card-header h5, .card-header h6 {
+        margin: 0;
+    }
+
+    .card-header button {
+        background-color: #FFA270;
+        color: #fff;
+        border: none;
+        transition: all 0.3s;
+    }
+
+        .card-header button:hover {
+            background-color: #FF8C65;
+        }
+
+/* ===== TABLE ===== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    min-width: 400px;
+    border-collapse: collapse;
+}
+
+    .table thead {
+        background: #FF7043;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .table tbody tr:hover {
+        background-color: #FFE5D9;
+        cursor: pointer;
+    }
+
+    .table td, .table th {
+        vertical-align: middle !important;
+        white-space: nowrap;
+    }
+
+/* ===== BUTTONS ===== */
+.btn-sm i {
+    margin-right: 0.35rem;
+}
+
+.btn-primary {
+    background-color: #FFA270;
+}
+
+    .btn-primary:hover {
+        background-color: #FF8C65;
+    }
+
+.btn-warning {
+    background-color: #FFB74D;
+}
+
+    .btn-warning:hover {
+        background-color: #FFA726;
+    }
+
+.btn-danger {
+    background-color: #FF5252;
+}
+
+    .btn-danger:hover {
+        background-color: #FF1744;
+    }
+
+.btn-info {
+    background-color: #4FC3F7;
+}
+
+    .btn-info:hover {
+        background-color: #29B6F6;
+    }
+
+/* ===== PAGINATION ===== */
+.pagination .page-link {
+    color: #FF5722;
+    border-color: #FF5722;
+}
+
+.pagination .active .page-link {
+    background-color: #FF5722;
+    border-color: #FF5722;
+}
+
+/* ==== MODAL CHUNG - THIẾT KẾ RED-ORANGE ==== */
+.modal-content {
+    border-radius: 0.8rem;
+    border: 2px solid #ff5722; /* đỏ cam */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background: linear-gradient(90deg, #ff5722, #ff8a50);
+    color: #fff;
+    border-bottom: 2px solid #e64a19;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.modal-body {
+    padding: 1rem 1.25rem;
+    color: #333;
+    background-color: #FFF3E0;
+    border-bottom: 1px solid #FF5722;
+}
+
+.modal-footer {
+    border-top: 1px solid #e64a19;
+}
+
+.btn-primary {
+    background-color: #ff5722;
+    border-color: #ff5722;
+    transition: all 0.2s;
+}
+
+    .btn-primary:hover {
+        background-color: #e64a19;
+        border-color: #e64a19;
+    }
+
+.btn-secondary {
+    background-color: #fff3e0;
+    color: #ff5722;
+    border: 1px solid #ff5722;
+}
+
+    .btn-secondary:hover {
+        background-color: #ffe0b2;
+        color: #e64a19;
+    }
+
+.btn-red-orange {
+    background-color: #FF5722;
+    color: #fff;
+    border: none;
+    transition: all 0.2s;
+}
+
+    .btn-red-orange:hover {
+        background-color: #E64A19;
+        color: #fff;
+    }
+
+
+.form-control:focus {
+    border-color: #ff5722;
+    box-shadow: 0 0 0 0.2rem rgba(255,87,34,.25);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .card-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+        .card-header button {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+    .table {
+        font-size: 0.85rem;
+        min-width: 500px;
+    }
+
+    .btn-sm span {
+        display: none;
+    }
+
+    .btn-sm i {
+        margin-right: 0 !important;
+    }
+}

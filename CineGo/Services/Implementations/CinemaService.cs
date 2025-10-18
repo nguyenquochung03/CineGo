@@ -37,6 +37,7 @@ namespace CineGo.Services
                     Name = c.Name,
                     Address = c.Address,
                     CityId = c.CityId,
+                    Amenities = c.Amenities
                 })
                 .ToListAsync();
 
@@ -64,6 +65,7 @@ namespace CineGo.Services
                 Name = c.Name,
                 Address = c.Address,
                 CityId = c.CityId,
+                Amenities = c.Amenities
             }).ToListAsync();
 
             return ApiResponse.SuccessResponse(cinemas);
@@ -74,7 +76,7 @@ namespace CineGo.Services
             var cinema = await _context.Cinemas.Include(c => c.City)
                 .FirstOrDefaultAsync(c => c.Id == id);
             if (cinema == null)
-                return ApiResponse.ErrorResponse(404, "Cinema không tồn tại.");
+                return ApiResponse.ErrorResponse(404, "Rạp chiếu không tồn tại.");
 
             var dto = new CinemaDTO
             {
@@ -82,6 +84,7 @@ namespace CineGo.Services
                 Name = cinema.Name,
                 Address = cinema.Address,
                 CityId = cinema.CityId,
+                Amenities = cinema.Amenities
             };
 
             return ApiResponse.SuccessResponse(dto);
@@ -90,7 +93,7 @@ namespace CineGo.Services
         public async Task<ApiResponse> CreateAsync(CinemaDTO dto)
         {
             if (!await _context.Cities.AnyAsync(c => c.Id == dto.CityId))
-                return ApiResponse.ErrorResponse(400, "City không tồn tại.");
+                return ApiResponse.ErrorResponse(400, "Thành phố không tồn tại.");
 
             if (await _context.Cinemas.AnyAsync(c => c.Name == dto.Name && c.CityId == dto.CityId))
                 return ApiResponse.ErrorResponse(400, "Tên rạp chiếu đã tồn tại trong thành phố này.");
@@ -99,7 +102,8 @@ namespace CineGo.Services
             {
                 Name = dto.Name,
                 Address = dto.Address,
-                CityId = dto.CityId
+                CityId = dto.CityId,
+                Amenities = dto.Amenities
             };
 
             _context.Cinemas.Add(cinema);
@@ -113,10 +117,10 @@ namespace CineGo.Services
         {
             var cinema = await _context.Cinemas.FindAsync(id);
             if (cinema == null)
-                return ApiResponse.ErrorResponse(404, "Cinema không tồn tại.");
+                return ApiResponse.ErrorResponse(404, "Rạp chiếu không tồn tại.");
 
             if (!await _context.Cities.AnyAsync(c => c.Id == dto.CityId))
-                return ApiResponse.ErrorResponse(400, "City không tồn tại.");
+                return ApiResponse.ErrorResponse(400, "Thành phố không tồn tại.");
 
             if (await _context.Cinemas.AnyAsync(c => c.Name == dto.Name && c.CityId == dto.CityId && c.Id != id))
                 return ApiResponse.ErrorResponse(400, "Tên rạp chiếu đã tồn tại trong thành phố này.");
@@ -124,6 +128,7 @@ namespace CineGo.Services
             cinema.Name = dto.Name;
             cinema.Address = dto.Address;
             cinema.CityId = dto.CityId;
+            cinema.Amenities = dto.Amenities;
             await _context.SaveChangesAsync();
 
             return ApiResponse.SuccessResponse(dto, "Cập nhật rạp chiếu thành công.");
@@ -133,7 +138,7 @@ namespace CineGo.Services
         {
             var cinema = await _context.Cinemas.Include(c => c.Theaters).FirstOrDefaultAsync(c => c.Id == id);
             if (cinema == null)
-                return ApiResponse.ErrorResponse(404, "Cinema không tồn tại.");
+                return ApiResponse.ErrorResponse(404, "Rạp chiếu không tồn tại.");
 
             if (cinema.Theaters != null && cinema.Theaters.Any())
                 return ApiResponse.ErrorResponse(400, "Không thể xóa rạp chiếu có phòng chiếu.");

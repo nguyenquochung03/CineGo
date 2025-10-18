@@ -14,6 +14,10 @@ namespace CineGo.Extensions
             services.AddScoped<ICinemaService, CinemaService>();
             services.AddScoped<ITheaterService, TheaterService>();
             services.AddScoped<ISeatService, SeatService>();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IPricingRuleService, PricingRuleService>();
+            services.AddScoped<IPricingRuleDayService, PricingRuleDayService>();
+            services.AddScoped<IPricingDetailService, PricingDetailService>();
         }
     }
 }

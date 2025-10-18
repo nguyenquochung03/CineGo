@@ -12,8 +12,10 @@ namespace CineGo.Models
         public DbSet<Cinema> Cinemas => Set<Cinema>();
         public DbSet<Theater> Theaters => Set<Theater>();
         public DbSet<Movie> Movies => Set<Movie>();
+        public DbSet<MoviePoster> MoviePosters => Set<MoviePoster>();
         public DbSet<Showtime> Showtimes => Set<Showtime>();
         public DbSet<ShowtimePrice> ShowtimePrices => Set<ShowtimePrice>();
+        public DbSet<TheaterShowtime> TheaterShowtimes { get; set; } = null!;
         public DbSet<PricingRule> PricingRules => Set<PricingRule>();
         public DbSet<PricingRuleDay> PricingRuleDays => Set<PricingRuleDay>();
         public DbSet<PricingDetail> PricingDetails => Set<PricingDetail>();
@@ -50,11 +52,20 @@ namespace CineGo.Models
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Quan hệ Theater - Showtime
-            modelBuilder.Entity<Showtime>()
-                .HasOne(s => s.Theater)
-                .WithMany(t => t.Showtimes)
-                .HasForeignKey(s => s.TheaterId)
-                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<TheaterShowtime>()
+                .HasKey(ts => new { ts.TheaterId, ts.ShowtimeId });
+
+            modelBuilder.Entity<TheaterShowtime>()
+                .HasOne(ts => ts.Theater)
+                .WithMany(t => t.TheaterShowtimes)
+                .HasForeignKey(ts => ts.TheaterId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<TheaterShowtime>()
+                .HasOne(ts => ts.Showtime)
+                .WithMany(s => s.TheaterShowtimes)
+                .HasForeignKey(ts => ts.ShowtimeId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Quan hệ Movie - Showtime
             modelBuilder.Entity<Showtime>()

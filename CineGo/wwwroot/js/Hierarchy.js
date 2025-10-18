@@ -96,6 +96,17 @@ function showModal(modalId, title, data = {}) {
     new bootstrap.Modal(modalEl).show();
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('shown.bs.modal', () => {
+            const firstInput = modal.querySelector('input:not([type="hidden"]), textarea, select');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        });
+    });
+});
+
 function resetForm(ids) { ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; }); }
 function resetError(ids) { ids.forEach(id => { const el = document.getElementById(id); if (el) el.innerText = ''; }); }
 
@@ -174,32 +185,43 @@ async function deleteCity(id) {
 
 // ===== CRUD CINEMA =====
 function addCinema(cityId) { showModal('cinemaModal', 'Thêm rạp', { cinemaCityId: cityId }); }
-function editCinema(id, name, address, cityId) { showModal('cinemaModal', 'Sửa rạp', { cinemaId: id, cinemaName: name, cinemaAddress: address, cinemaCityId: cityId }); }
+function editCinema(id, name, address, amenities, cityId) { showModal('cinemaModal', 'Sửa rạp', { cinemaId: id, cinemaName: name, cinemaAddress: address, cinemaCityId: cityId, cinemaAmenities: amenities }); }
 
 document.getElementById('cinemaSaveBtn').addEventListener('click', async () => {
     const id = document.getElementById('cinemaId').value;
     const cityId = document.getElementById('cinemaCityId').value;
     const name = document.getElementById('cinemaName').value.trim();
     const address = document.getElementById('cinemaAddress').value.trim();
+    const amenities = document.getElementById('cinemaAmenities').value.trim();
     const errorEl = document.getElementById('cinemaError');
     errorEl.innerText = "";
 
     if (!name) { errorEl.innerText = "Tên rạp không được trống!"; return; }
+    if (!address) { errorEl.innerText = "Địa chỉ không được trống!"; return; }
 
     const url = id ? `/Admin/Cinema/Update/${id}` : `/Admin/Cinema/Create`;
+    const payload = {
+        Name: name,
+        Address: address,
+        CityId: cityId,
+        Amenities: amenities
+    };
+
     const res = await fetch(url, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ Name: name, Address: address, CityId: cityId })
+        body: JSON.stringify(payload)
     });
     const data = await res.json();
 
     if (data.success) {
         bootstrap.Modal.getInstance(document.getElementById('cinemaModal')).hide();
         loadCinemas(cityId, window.currentCityName);
-        resetForm(['cinemaId', 'cinemaName', 'cinemaAddress', 'cinemaCityId']);
+        resetForm(['cinemaId', 'cinemaName', 'cinemaAddress', 'cinemaCityId', 'cinemaAmenities']);
         resetError(['cinemaError']);
-    } else { errorEl.innerText = data.message; }
+    } else {
+        errorEl.innerText = "Không thể kết nối tới máy chủ.";
+    }
 });
 
 async function deleteCinema(id, cityId) {

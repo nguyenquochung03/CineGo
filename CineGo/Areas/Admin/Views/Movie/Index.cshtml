@@ -1,0 +1,182 @@
+﻿@using CineGo.DTO.Common
+@using CineGo.DTO.Movie
+@model PagedResult<MovieDTO>
+
+@{
+    ViewData["Title"] = "Quản lý Phim";
+    var searchTitle = ViewBag.SearchTitle as string;
+}
+
+<link rel="stylesheet" href="~/css/MovieAdmin.css" />
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Danh sách Phim</h5>
+        <button class="btn btn-sm btn-primary" onclick="showMovieModal(0)"><i class="bi bi-plus-circle me-1"></i> Thêm Phim</button>
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Index" method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="searchTitle" class="form-control" placeholder="Tìm kiếm theo tên phim..." value="@searchTitle" />
+                <button type="submit" class="btn btn-outline-secondary">Tìm kiếm</button>
+                @if (!string.IsNullOrWhiteSpace(searchTitle))
+                {
+                    <a asp-action="Index" class="btn btn-outline-danger">Xóa tìm kiếm</a>
+                }
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Poster</th>
+                        <th>Tên phim</th>
+                        <th>Slug</th>
+                        <th>Thời lượng (phút)</th>
+                        <th>Xếp hạng</th>
+                        <th>Giới hạn tuổi</th>
+                        <th>Ngày phát hành</th>
+                        <th class="text-end" style="width: 150px;">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Items != null && Model.Items.Any())
+                    {
+                        @foreach (var m in Model.Items)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@(m.Posters.FirstOrDefault()?.Url ?? "/images/default-poster.png")"
+                                         alt="@m.Title Poster"
+                                         style="width: 50px; height: auto; object-fit: cover; border-radius: 4px;" />
+                                </td>
+                                <td>@m.Title</td>
+                                <td><span class="slug-text" title="@m.Slug">@m.Slug</span></td>
+                                <td>@m.Runtime</td>
+                                <td>@m.Rating</td>
+                                <td>@m.AgeLimit+</td>
+                                <td>@m.ReleaseDate.ToString("dd/MM/yyyy")</td>
+                                <td class="text-end">
+                                    <button class="btn btn-warning btn-sm text-white" onclick="showMovieModal(@m.Id)">
+                                        <i class="bi bi-pencil-fill me-1"></i> Sửa
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="deleteMovie(@m.Id, '@m.Title')">
+                                        <i class="bi bi-trash-fill me-1"></i> Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center text-muted">@(!string.IsNullOrWhiteSpace(searchTitle) ? "Không tìm thấy phim nào." : "Chưa có phim nào.")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-3 text-center">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <a class="btn btn-sm @(i == Model.Page ? "btn-danger" : "btn-outline-primary")"
+                   asp-action="Index"
+                   asp-route-page="@i"
+                   asp-route-pageSize="@Model.PageSize"
+                   asp-route-searchTitle="@searchTitle">
+                    @i
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="movieModalLabel">Thêm/Sửa Phim</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="movieFormContainer">
+                Đang tải...
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $('#movieModal').on('shown.bs.modal', function () {
+            $(this).find('input:visible:first').focus();
+        });
+
+        function showMovieModal(id) {
+            var title = id === 0 ? "Thêm Phim Mới" : "Chỉnh Sửa Phim";
+            $("#movieModalLabel").text(title);
+            $("#movieFormContainer").html("Đang tải...");
+
+            $.ajax({
+                url: '@Url.Action("GetForm", "Movie")',
+                type: 'GET',
+                data: { id: id },
+                success: function (html) {
+                    $("#movieFormContainer").html(html);
+                    $('#movieModal').modal('show');
+                },
+                error: function () {
+                    $("#movieFormContainer").html('<div class="alert alert-danger">Không thể tải form.</div>');
+                }
+            });
+        }
+
+        function submitMovieForm(form) {
+            var formData = new FormData(form);
+
+            $('.validation-summary-errors').remove();
+
+            $.ajax({
+                url: '@Url.Action("Save", "Movie")',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    if (result.success) {
+                        $('#movieModal').modal('hide');
+                        window.location.reload();
+                    }
+                },
+                error: function (xhr) {
+                    if (xhr.status === 400 || xhr.status === 200) {
+                        $("#movieFormContainer").html(xhr.responseText);
+                        $.validator.unobtrusive.parse(form);
+                    } else {
+                        alert("Lỗi server: " + xhr.statusText);
+                    }
+                }
+            });
+
+            return false;
+        }
+
+        function deleteMovie(id, title) {
+            if (confirm(`Bạn có chắc chắn muốn xóa phim "${title}"?`)) {
+                $.post('@Url.Action("Delete", "Movie")', { id: id })
+                    .done(function (result) {
+                        if (result.success) {
+                            window.location.reload();
+                        } else {
+                            alert(result.message || "Xóa thất bại.");
+                        }
+                    })
+                    .fail(function (xhr, status, error) {
+                        alert("Lỗi server khi xóa.");
+                    });
+            }
+        }
+    </script>
+}

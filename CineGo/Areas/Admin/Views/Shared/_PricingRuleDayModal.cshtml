@@ -1,0 +1,35 @@
+﻿<div class="modal fade" id="pricingRuleDayModal" tabindex="-1" aria-labelledby="dayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dayModalLabel">Tạo / Sửa Ngày Áp Dụng</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="pricingRuleDayForm" class="needs-validation" novalidate>
+                    <input type="hidden" id="dayId" />
+                    <input type="hidden" id="dayPricingRuleId" />
+
+                    <div class="mb-3">
+                        <label for="dayName" class="form-label">Ngày Trong Tuần</label>
+                        <select class="form-select" id="dayName" required>
+                            <option value="">-- Chọn Ngày --</option>
+                            <option value="Monday">Thứ Hai</option>
+                            <option value="Tuesday">Thứ Ba</option>
+                            <option value="Wednesday">Thứ Tư</option>
+                            <option value="Thursday">Thứ Năm</option>
+                            <option value="Friday">Thứ Sáu</option>
+                            <option value="Saturday">Thứ Bảy</option>
+                            <option value="Sunday">Chủ Nhật</option>
+                        </select>
+                        <div class="invalid-feedback">Vui lòng chọn Ngày Áp Dụng.</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="daySaveBtn">Lưu Thay Đổi</button>
+            </div>
+        </div>
+    </div>
+</div>

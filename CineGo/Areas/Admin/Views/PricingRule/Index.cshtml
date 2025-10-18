@@ -1,0 +1,26 @@
+﻿@* File: /Areas/Admin/Views/PricingRule/Index.cshtml *@
+@{
+    ViewData["Title"] = "Quản Lý Quy Tắc Giá";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PricingRule.css" />
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" id="breadcrumb">
+        @* Breadcrumb sẽ được JS cập nhật *@
+    </ol>
+</nav>
+
+<div id="content-area" class="card shadow mb-4">
+    @* Nội dung (danh sách Rule/Detail/Day) sẽ được JS tải vào đây *@
+</div>
+
+@* Gọi các Modal View (Đã giả định đặt trong Views/Shared) *@
+@await Html.PartialAsync("_PricingRuleModal")
+@await Html.PartialAsync("_PricingDetailModal")
+@await Html.PartialAsync("_PricingRuleDayModal")
+
+@section Scripts {
+    <script src="~/js/PricingRule.js"></script>
+}

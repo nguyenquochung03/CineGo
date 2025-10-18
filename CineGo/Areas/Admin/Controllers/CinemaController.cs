@@ -60,6 +60,7 @@ namespace CineGo.Areas.Admin.Controllers
         [HttpPost("{id}")]
         public async Task<JsonResult> Update(int id, [FromBody] CinemaDTO dto)
         {
+            Console.WriteLine(dto.Amenities);
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values

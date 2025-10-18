@@ -32,7 +32,7 @@ namespace CineGo.Models
         // Quan hệ 1:N — Một Theater có nhiều Seat
         public ICollection<Seat>? Seats { get; set; }
 
-        // Quan hệ 1:N — Một Theater có nhiều Showtime
-        public ICollection<Showtime>? Showtimes { get; set; }
+        // Quan hệ N:N với Showtime
+        public ICollection<TheaterShowtime> TheaterShowtimes { get; set; } = new List<TheaterShowtime>();
     }
 }

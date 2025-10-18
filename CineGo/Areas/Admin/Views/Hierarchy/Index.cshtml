@@ -5,18 +5,15 @@
 
 <link rel="stylesheet" href="~/css/Hierarchy.css" />
 
-<div class="container-fluid mt-3">
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb" id="breadcrumb">
-            <li class="breadcrumb-item active">Khu vực</li>
-        </ol>
-    </nav>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item active">Khu vực</li>
+    </ol>
+</nav>
 
-    <!-- Khu vực động -->
-    <div id="skeleton-container"></div>
-    <div id="content-area"></div>
-</div>
+<!-- Khu vực động -->
+<div id="content-area"></div>
 
 <!-- ===== MODALS ===== -->
 <!-- Region Modal -->
@@ -89,6 +86,10 @@
                 <div class="mb-3">
                     <label class="form-label">Địa chỉ</label>
                     <input type="text" class="form-control" id="cinemaAddress" placeholder="Nhập địa chỉ">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tiện ích</label>
+                    <textarea class="form-control" id="cinemaAmenities" rows="3" placeholder="Nhập các tiện ích"></textarea>
                 </div>
             </div>
             <div class="modal-footer">

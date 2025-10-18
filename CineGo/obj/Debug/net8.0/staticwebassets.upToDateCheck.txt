@@ -3,10 +3,14 @@ wwwroot\css\AdminLayout.css
 wwwroot\css\AdminLayoutLogin.css
 wwwroot\css\Adminlogin.css
 wwwroot\css\Hierarchy.css
+wwwroot\css\MovieAdmin.css
+wwwroot\css\PricingRule.css
 wwwroot\css\SeatMap.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\login_background.jpg
+wwwroot\js\Hierarchy.js
+wwwroot\js\PricingRule.js
 wwwroot\js\SeatMap.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -66,4 +70,5 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\js\Hierarchy.js
+wwwroot\uploads\movies\1394ab76-7887-4893-b365-3dcfc05137e4_Chainsaw_Man_Reze_Arc_movie_poster.jpg
+wwwroot\uploads\movies\3aa0275e-6933-4be6-a936-5c590f9dc0b3_download.jpg

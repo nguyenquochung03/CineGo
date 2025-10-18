@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace CineGo.DTO.Common
 {
-    /// Dùng để chứa dữ liệu phân trang (paging result)
     public class PagedResult<T>
     {
         public List<T> Items { get; set; } = new();
