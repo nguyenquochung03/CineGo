@@ -170,16 +170,6 @@ C:\My Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\runtimes\win\lib\net6.
 C:\My Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.AssemblyReference.cache
 C:\My Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.Up2Date
 C:\My Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.sourcelink.json
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.AssemblyReference.cache
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.AssemblyInfoInputs.cache
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.AssemblyInfo.cs
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.CoreCompileInputs.cache
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.MvcApplicationPartsAssemblyInfo.cache
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.RazorAssemblyInfo.cache
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.RazorAssemblyInfo.cs
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.sourcelink.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\appsettings.Development.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\appsettings.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\CineGo.staticwebassets.runtime.json
@@ -326,6 +316,16 @@ C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\runtimes\win\lib\net6.0\S
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.AssemblyReference.cache
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.AssemblyInfoInputs.cache
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.AssemblyInfo.cs
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.CoreCompileInputs.cache
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.MvcApplicationPartsAssemblyInfo.cache
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.RazorAssemblyInfo.cache
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.RazorAssemblyInfo.cs
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.sourcelink.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -336,7 +336,6 @@ C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\staticwebassets.build.jso
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\staticwebassets.development.json
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.csproj.Up2Date
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.dll
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\refint\CineGo.dll

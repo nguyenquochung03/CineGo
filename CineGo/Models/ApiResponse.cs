@@ -27,5 +27,17 @@
                 Message = message
             };
         }
+
+        public static ApiResponse ErrorResponse(int status, string message, object? data = null)
+        {
+            return new ApiResponse
+            {
+                Success = false,
+                Status = status,
+                Message = message,
+                Data = data
+            };
+        }
+
     }
 }

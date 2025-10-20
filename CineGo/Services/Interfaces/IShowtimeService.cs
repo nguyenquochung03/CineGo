@@ -12,6 +12,6 @@ namespace CineGo.Services.Interfaces
         Task<ApiResponse> DeleteAsync(int id);
         Task<ApiResponse> GetByDateAsync(DateTime date);
         Task<ApiResponse> GetByDateTimeRangeAsync(DateTime date, TimeSpan start, TimeSpan end);
-        Task<ApiResponse> GetByMovieAsync(int movieId);
+        Task<ApiResponse> GetByMovieNameAsync(string movieName);
     }
 }

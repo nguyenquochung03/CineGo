@@ -21,7 +21,7 @@ namespace CineGo.Areas.Admin.Controllers
 
         // GET: /Admin/PricingDetail/List
         [HttpGet]
-        public async Task<IActionResult> List(int ruleId, int page = 1, int pageSize = 10)
+        public async Task<IActionResult> List(int ruleId, int page = 1, int pageSize = 5)
         {
             if (ruleId <= 0)
                 return Json(ApiResponse.ErrorResponse(400, "Thiếu ID của quy tắc giá."));

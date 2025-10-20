@@ -104,12 +104,29 @@
     border-color: #FF5722;
 }
 
+.modal-content {
+    border-radius: 0.8rem;
+    border: 2px solid #ff5722;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
 .modal-header {
     background: linear-gradient(90deg, #FF7043, #FF3D00) !important;
     color: #fff !important;
     border-bottom: 2px solid #e64a19;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
+}
+
+.modal-body {
+    padding: 1rem 1.25rem;
+    color: #333;
+    background-color: #FFF3E0;
+    border-bottom: 1px solid #FF5722;
+}
+
+.modal-footer {
+    border-top: 1px solid #e64a19;
 }
 
 .modal-footer .btn-primary {
@@ -137,6 +154,65 @@
 
 .modal-body .mt-2 img {
     border: 1px solid #FF7043;
+}
+
+.btn-red-orange {
+    background-color: #FF4500;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 12px;
+    min-width: 36px;
+    height: 34px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(255, 69, 0, 0.3);
+    line-height: 1;
+}
+
+    .btn-red-orange:hover {
+        background-color: #FF5C33;
+        box-shadow: 0 3px 8px rgba(255, 87, 51, 0.4);
+        transform: translateY(-1.5px);
+    }
+
+    .btn-red-orange:active {
+        background-color: #E03E00;
+        transform: translateY(0);
+    }
+
+.btn-outline-red-orange {
+    background-color: transparent;
+    color: #FF4500;
+    border: 1.8px solid #FF4500;
+    border-radius: 6px;
+    padding: 5px 12px;
+    min-width: 36px;
+    height: 34px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    line-height: 1;
+}
+
+    .btn-outline-red-orange:hover {
+        background-color: #FF4500;
+        color: #fff;
+        box-shadow: 0 3px 8px rgba(255, 69, 0, 0.3);
+        transform: translateY(-1.5px);
+    }
+
+    .btn-outline-red-orange:active {
+        background-color: #E03E00;
+        color: #fff;
+        transform: translateY(0);
+    }
+
+.mt-3.text-center button {
+    margin: 0 3px;
 }
 
 @media (max-width: 768px) {

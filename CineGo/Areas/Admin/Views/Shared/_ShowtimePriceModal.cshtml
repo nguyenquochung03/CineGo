@@ -1,0 +1,47 @@
+﻿<div class="modal fade" id="showtimePriceModal" tabindex="-1" aria-labelledby="showtimePriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="showtimePriceModalLabel">Tạo / Sửa Giá Suất Chiếu</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="showtimePriceForm" class="needs-validation" novalidate>
+                    <input type="hidden" id="priceId" />
+                    <input type="hidden" id="priceShowtimeId" />
+
+                    <div class="mb-3">
+                        <label for="ticketType" class="form-label">Loại vé</label>
+                        <select class="form-select" id="ticketType" required>
+                            <option value="">-- Chọn Loại Vé --</option>
+                            <option value="Adult">Người Lớn</option>
+                            <option value="Child">Trẻ Em</option>
+                            <option value="Student">Sinh Viên</option>
+                        </select>
+                        <div class="invalid-feedback">Vui lòng chọn loại vé.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="seatType" class="form-label">Loại ghế</label>
+                        <select class="form-select" id="seatType" required>
+                            <option value="">-- Chọn Loại Ghế --</option>
+                            <option value="Standard">Tiêu Chuẩn</option>
+                            <option value="VIP">VIP</option>
+                        </select>
+                        <div class="invalid-feedback">Vui lòng chọn loại ghế.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Giá</label>
+                        <input type="number" class="form-control" id="price" min="0" step="1000" required />
+                        <div class="invalid-feedback">Vui lòng nhập giá vé hợp lệ.</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="priceSaveBtn">Lưu Thay Đổi</button>
+            </div>
+        </div>
+    </div>
+</div>

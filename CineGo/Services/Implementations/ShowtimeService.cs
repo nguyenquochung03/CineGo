@@ -48,17 +48,6 @@ namespace CineGo.Services.Implementations
                     Format = s.Format,
                     PricingRuleId = s.PricingRuleId,
                     IsWeekend = s.IsWeekend,
-                    Prices = (s.ShowtimePrices ?? new List<ShowtimePrice>())
-                        .Select(p => new ShowtimePriceDTO
-                        {
-                            Id = p.Id,
-                            ShowtimeId = s.Id,
-                            TicketType = p.TicketType,
-                            SeatType = p.SeatType,
-                            Price = p.Price
-                        })
-                        .ToList(),
-                    TheaterIds = s.TheaterShowtimes.Select(ts => ts.TheaterId).ToList()
                 })
                 .ToListAsync();
 
@@ -98,15 +87,6 @@ namespace CineGo.Services.Implementations
                 Format = showtime.Format,
                 PricingRuleId = showtime.PricingRuleId,
                 IsWeekend = showtime.IsWeekend,
-                Prices = showtime?.ShowtimePrices?.Select(p => new ShowtimePriceDTO
-                {
-                    Id = p.Id,
-                    ShowtimeId = showtime.Id,
-                    TicketType = p.TicketType,
-                    SeatType = p.SeatType,
-                    Price = p.Price
-                }).ToList() ?? new List<ShowtimePriceDTO>(),
-                TheaterIds = showtime?.TheaterShowtimes?.Select(ts => ts.TheaterId).ToList() ?? new List<int>()
             };
 
             return ApiResponse.SuccessResponse(dto);
@@ -114,12 +94,16 @@ namespace CineGo.Services.Implementations
 
         public async Task<ApiResponse> CreateAsync(ShowtimeCreateDTO dto)
         {
-            if (dto.TheaterIds == null || !dto.TheaterIds.Any())
-                return ApiResponse.ErrorResponse(400, "Phải chọn ít nhất một phòng chiếu.");
-
             var movie = await _context.Movies.FirstOrDefaultAsync(m => m.Id == dto.MovieId);
             if (movie == null)
                 return ApiResponse.ErrorResponse(404, "Phim không tồn tại.");
+
+            // Check ngày trong quá khứ
+            if (dto.Date.Date < DateTime.Today)
+                return ApiResponse.ErrorResponse(400, "Ngày chiếu không thể là quá khứ.");
+
+            if (dto.StartTime >= dto.EndTime)
+                return ApiResponse.ErrorResponse(400, "Giờ bắt đầu phải nhỏ hơn giờ kết thúc.");
 
             var dayName = dto.Date.DayOfWeek.ToString();
 
@@ -131,24 +115,40 @@ namespace CineGo.Services.Implementations
                 .FirstOrDefaultAsync(p =>
                     p.IsActive &&
                     movie.Runtime <= p.Runtime &&
-                    p.ApplicableDays != null &&
                     p.ApplicableDays.Any(d => d.DayName == dayName));
 
             if (pricingRule == null)
-                return ApiResponse.ErrorResponse(400, "Không tìm thấy quy tắc giá phù hợp. Hãy thêm PricingRule trước.");
-
-            // Kiểm tra trùng lịch chiếu trong các phòng
-            var conflictedTheaters = await GetConflictedTheatersAsync(dto.TheaterIds, dto.Date, dto.StartTime, dto.EndTime);
-
-            if (conflictedTheaters.Any())
             {
-                var message = "Các phòng chiếu trùng thời gian: " +
-                              string.Join(", ", conflictedTheaters.Select(c =>
-                                  $"Rạp '{c.CinemaName}' - Phòng '{c.TheaterName}' (Suất chiếu ID {c.ConflictingShowtimeId}, {c.ConflictingStart}-{c.ConflictingEnd})"));
-                return ApiResponse.ErrorResponse(400, message);
+                // Kiểm tra từng loại nguyên nhân
+                bool hasRuntimeRule = await _context.PricingRules.AnyAsync(p => p.IsActive && movie.Runtime <= p.Runtime);
+                bool hasDayRule = await _context.PricingRules
+                    .Include(p => p.ApplicableDays)
+                    .AnyAsync(p => p.IsActive && p.ApplicableDays.Any(d => d.DayName == dayName));
+
+                // Xây dựng message chi tiết
+                var reasons = new List<string>();
+                if (!hasRuntimeRule)
+                    reasons.Add($"Không có đơn giá phù hợp (phim dài {movie.Runtime} phút).");
+                if (!hasDayRule)
+                    reasons.Add($"Không có đơn giá áp dụng cho ngày {dayName}.");
+
+                string reason = string.Join(Environment.NewLine, reasons);
+                return ApiResponse.ErrorResponse(400, reason);
             }
 
-            bool isWeekend = dto.Date.DayOfWeek == DayOfWeek.Saturday || dto.Date.DayOfWeek == DayOfWeek.Sunday;
+            // Kiểm tra trùng suất chiếu
+            bool isDuplicate = await _context.Showtimes
+                .AnyAsync(s =>
+                    s.MovieId == dto.MovieId &&
+                    s.Date == dto.Date &&
+                    s.StartTime == dto.StartTime &&
+                    s.Format == dto.Format
+                );
+
+            if (isDuplicate)
+                return ApiResponse.ErrorResponse(400, $"Suất chiếu cho phim này ({dto.Format}) vào giờ đã tồn tại trong cùng ngày.");
+
+            bool isWeekend = dto.Date.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday;
 
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -167,19 +167,8 @@ namespace CineGo.Services.Implementations
                 _context.Showtimes.Add(showtime);
                 await _context.SaveChangesAsync();
 
-                // Liên kết theater
-                foreach (var theaterId in dto.TheaterIds)
-                {
-                    _context.TheaterShowtimes.Add(new TheaterShowtime
-                    {
-                        TheaterId = theaterId,
-                        ShowtimeId = showtime.Id
-                    });
-                }
-
-                // Tạo ShowtimePrice từ PricingDetail
-                var pricingDetails = pricingRule!.PricingDetails ?? new List<PricingDetail>();
-
+                // Tạo giá vé mặc định dựa trên PricingRule
+                var pricingDetails = pricingRule.PricingDetails ?? new List<PricingDetail>();
                 foreach (var detail in pricingDetails)
                 {
                     _context.ShowtimePrices.Add(new ShowtimePrice
@@ -194,7 +183,20 @@ namespace CineGo.Services.Implementations
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
 
-                return ApiResponse.SuccessResponse(showtime, "Tạo suất chiếu thành công.");
+                var responseDto = new ShowtimeDTO
+                {
+                    Id = showtime.Id,
+                    MovieId = showtime.MovieId,
+                    MovieTitle = movie.Title,
+                    Date = showtime.Date,
+                    StartTime = showtime.StartTime,
+                    EndTime = showtime.EndTime,
+                    Format = showtime.Format,
+                    IsWeekend = showtime.IsWeekend
+                };
+
+                return ApiResponse.SuccessResponse(responseDto, "Tạo suất chiếu thành công (chưa gán phòng chiếu).");
+
             }
             catch
             {
@@ -205,11 +207,7 @@ namespace CineGo.Services.Implementations
 
         public async Task<ApiResponse> UpdateAsync(ShowtimeUpdateDTO dto)
         {
-            if (dto.TheaterIds == null || !dto.TheaterIds.Any())
-                return ApiResponse.ErrorResponse(400, "Phải chọn ít nhất một phòng chiếu.");
-
             var showtime = await _context.Showtimes
-                .Include(s => s.TheaterShowtimes)
                 .Include(s => s.PricingRule)
                     .ThenInclude(p => p.PricingDetails)
                 .FirstOrDefaultAsync(s => s.Id == dto.Id);
@@ -221,9 +219,14 @@ namespace CineGo.Services.Implementations
             if (movie == null)
                 return ApiResponse.ErrorResponse(404, "Phim không tồn tại.");
 
+            if (dto.Date.Date < DateTime.Today)
+                return ApiResponse.ErrorResponse(400, "Ngày chiếu không thể là quá khứ.");
+
+            if (dto.StartTime >= dto.EndTime)
+                return ApiResponse.ErrorResponse(400, "Giờ bắt đầu phải nhỏ hơn giờ kết thúc.");
+
             var dayName = dto.Date.DayOfWeek.ToString();
 
-            // Tìm pricing rule phù hợp
             var pricingRule = await _context.PricingRules
                 .Include(p => p.PricingDetails)
                 .Include(p => p.ApplicableDays)
@@ -231,27 +234,43 @@ namespace CineGo.Services.Implementations
                 .FirstOrDefaultAsync(p =>
                     p.IsActive &&
                     movie.Runtime <= p.Runtime &&
-                    p.ApplicableDays != null &&
                     p.ApplicableDays.Any(d => d.DayName == dayName));
 
             if (pricingRule == null)
-                return ApiResponse.ErrorResponse(400, "Không tìm thấy quy tắc giá phù hợp. Hãy thêm PricingRule trước.");
-
-            // Kiểm tra trùng lịch chiếu trong các phòng (loại trừ showtime hiện tại)
-            var conflictedTheaters = await GetConflictedTheatersAsync(dto.TheaterIds, dto.Date, dto.StartTime, dto.EndTime, showtime.Id);
-
-            if (conflictedTheaters.Any())
             {
-                var message = "Các phòng chiếu trùng thời gian: " +
-                              string.Join(", ", conflictedTheaters.Select(c =>
-                                  $"Rạp '{c.CinemaName}' - Phòng '{c.TheaterName}' (Suất chiếu ID {c.ConflictingShowtimeId}, {c.ConflictingStart}-{c.ConflictingEnd})"));
-                return ApiResponse.ErrorResponse(400, message);
+                // Kiểm tra từng loại nguyên nhân
+                bool hasRuntimeRule = await _context.PricingRules.AnyAsync(p => p.IsActive && movie.Runtime <= p.Runtime);
+                bool hasDayRule = await _context.PricingRules
+                    .Include(p => p.ApplicableDays)
+                    .AnyAsync(p => p.IsActive && p.ApplicableDays.Any(d => d.DayName == dayName));
+
+                // Xây dựng message chi tiết
+                var reasons = new List<string>();
+                if (!hasRuntimeRule)
+                    reasons.Add($"Không có đơn giá phù hợp (phim dài {movie.Runtime} phút).");
+                if (!hasDayRule)
+                    reasons.Add($"Không có đơn giá áp dụng cho ngày {dayName}.");
+
+                string reason = string.Join(Environment.NewLine, reasons);
+                return ApiResponse.ErrorResponse(400, reason);
             }
+
+            // Kiểm tra trùng suất chiếu
+            bool isDuplicate = await _context.Showtimes
+                .AnyAsync(s =>
+                    s.Id != dto.Id &&
+                    s.MovieId == dto.MovieId &&
+                    s.Date == dto.Date &&
+                    s.StartTime == dto.StartTime &&
+                    s.Format == dto.Format
+                );
+
+            if (isDuplicate)
+                return ApiResponse.ErrorResponse(400, $"Suất chiếu cho phim này ({dto.Format}) vào giờ đã tồn tại trong cùng ngày.");
 
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
-                // Cập nhật thông tin showtime
                 showtime.MovieId = dto.MovieId;
                 showtime.Date = dto.Date;
                 showtime.StartTime = dto.StartTime;
@@ -267,7 +286,7 @@ namespace CineGo.Services.Implementations
                     var oldPrices = _context.ShowtimePrices.Where(p => p.ShowtimeId == showtime.Id);
                     _context.ShowtimePrices.RemoveRange(oldPrices);
 
-                    var pricingDetails = pricingRule!.PricingDetails ?? new List<PricingDetail>();
+                    var pricingDetails = pricingRule.PricingDetails ?? new List<PricingDetail>();
                     foreach (var detail in pricingDetails)
                     {
                         _context.ShowtimePrices.Add(new ShowtimePrice
@@ -283,7 +302,19 @@ namespace CineGo.Services.Implementations
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
 
-                return ApiResponse.SuccessResponse(showtime, "Cập nhật suất chiếu thành công.");
+                var responseDto = new ShowtimeDTO
+                {
+                    Id = showtime.Id,
+                    MovieId = showtime.MovieId,
+                    MovieTitle = movie.Title,
+                    Date = showtime.Date,
+                    StartTime = showtime.StartTime,
+                    EndTime = showtime.EndTime,
+                    Format = showtime.Format,
+                    IsWeekend = showtime.IsWeekend
+                };
+
+                return ApiResponse.SuccessResponse(responseDto, "Tạo suất chiếu thành công (chưa gán phòng chiếu).");
             }
             catch
             {
@@ -302,42 +333,12 @@ namespace CineGo.Services.Implementations
             if (showtime == null)
                 return ApiResponse.ErrorResponse(404, "Không tìm thấy suất chiếu.");
 
-            _context.ShowtimePrices.RemoveRange(showtime!.ShowtimePrices!);
+            _context.ShowtimePrices.RemoveRange(showtime.ShowtimePrices);
             _context.TheaterShowtimes.RemoveRange(showtime.TheaterShowtimes);
             _context.Showtimes.Remove(showtime);
             await _context.SaveChangesAsync();
 
             return ApiResponse.SuccessResponse(null, "Xóa suất chiếu thành công.");
-        }
-
-        // -------------------- Private helpers --------------------
-        private async Task<List<ConflictedTheaterDTO>> GetConflictedTheatersAsync(
-            List<int> theaterIds, DateTime date, TimeSpan start, TimeSpan end, int? excludeShowtimeId = null)
-        {
-            var query = _context.TheaterShowtimes
-                .Include(ts => ts.Showtime)
-                .Include(ts => ts.Theater)
-                    .ThenInclude(t => t.Cinema)
-                .Where(ts =>
-                    theaterIds.Contains(ts.TheaterId) &&
-                    ts.Showtime.Date == date &&
-                    start < ts.Showtime.EndTime &&
-                    end > ts.Showtime.StartTime);
-
-            if (excludeShowtimeId.HasValue)
-                query = query.Where(ts => ts.Showtime.Id != excludeShowtimeId.Value);
-
-            return await query
-                .Select(ts => new ConflictedTheaterDTO
-                {
-                    TheaterId = ts.TheaterId,
-                    TheaterName = ts.Theater!.Name,
-                    CinemaName = ts.Theater.Cinema!.Name,
-                    ConflictingShowtimeId = ts.Showtime.Id,
-                    ConflictingStart = ts.Showtime.StartTime,
-                    ConflictingEnd = ts.Showtime.EndTime
-                })
-                .ToListAsync();
         }
 
         // -------------------- Filter methods --------------------
@@ -365,7 +366,7 @@ namespace CineGo.Services.Implementations
                 .Include(s => s.TheaterShowtimes)
                     .ThenInclude(ts => ts.Theater)
                 .Include(s => s.ShowtimePrices)
-                .Where(s => s.Date.Date == date.Date && s.StartTime >= start && s.EndTime <= end)
+                .Where(s => s.Date.Date == date.Date && s.EndTime > start && s.StartTime < end)
                 .OrderBy(s => s.StartTime)
                 .ToListAsync();
 
@@ -373,18 +374,25 @@ namespace CineGo.Services.Implementations
             return ApiResponse.SuccessResponse(dtos);
         }
 
-        public async Task<ApiResponse> GetByMovieAsync(int movieId)
+        public async Task<ApiResponse> GetByMovieNameAsync(string movieName)
         {
+            if (string.IsNullOrWhiteSpace(movieName))
+                return ApiResponse.ErrorResponse(400, "Tên phim không được để trống.");
+
             var showtimes = await _context.Showtimes
                 .Include(s => s.Movie)
                 .Include(s => s.PricingRule)
                 .Include(s => s.TheaterShowtimes)
                     .ThenInclude(ts => ts.Theater)
                 .Include(s => s.ShowtimePrices)
-                .Where(s => s.MovieId == movieId)
+                .AsNoTracking()
+                .Where(s => s.Movie.Title.ToLower().Contains(movieName.ToLower()))
                 .OrderBy(s => s.Date)
                 .ThenBy(s => s.StartTime)
                 .ToListAsync();
+
+            if (!showtimes.Any())
+                return ApiResponse.ErrorResponse(404, $"Không tìm thấy suất chiếu cho phim có tên chứa '{movieName}'.");
 
             var dtos = showtimes.Select(s => MapToDTO(s)).ToList();
             return ApiResponse.SuccessResponse(dtos);
@@ -404,15 +412,6 @@ namespace CineGo.Services.Implementations
                 Format = showtime.Format,
                 PricingRuleId = showtime.PricingRuleId,
                 IsWeekend = showtime.IsWeekend,
-                Prices = showtime.ShowtimePrices?.Select(p => new ShowtimePriceDTO
-                {
-                    Id = p.Id,
-                    ShowtimeId = showtime.Id,
-                    TicketType = p.TicketType,
-                    SeatType = p.SeatType,
-                    Price = p.Price
-                }).ToList() ?? new List<ShowtimePriceDTO>(),
-                TheaterIds = showtime.TheaterShowtimes?.Select(ts => ts.TheaterId).ToList() ?? new List<int>()
             };
         }
     }

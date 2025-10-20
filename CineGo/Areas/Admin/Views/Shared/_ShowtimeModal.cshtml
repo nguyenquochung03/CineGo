@@ -1,57 +1,58 @@
 ﻿<div class="modal fade" id="showtimeModal" tabindex="-1" aria-labelledby="showtimeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="showtimeModalLabel">Tạo / Sửa Suất chiếu</h5>
+                <h5 class="modal-title" id="showtimeModalLabel">Tạo / Sửa Suất Chiếu</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="showtimeForm" class="needs-validation" novalidate>
                     <input type="hidden" id="showtimeId" />
 
-                    <div class="mb-3">
-                        <label for="showtimeMovie" class="form-label">Phim</label>
-                        <select id="showtimeMovie" class="form-select" required>
-                            <option value="">-- Chọn Phim --</option>
-                        </select>
+                    <div class="mb-3 position-relative">
+                        <label for="movieSearch" class="form-label">Phim</label>
+                        <input type="text" id="movieSearch" class="form-control" placeholder="Nhập tên phim..." required />
+                        <input type="hidden" id="movieId" />
+                        <div id="movieSuggestions" class="list-group position-absolute w-100"></div>
                         <div class="invalid-feedback">Vui lòng chọn phim.</div>
                     </div>
 
-                    <div class="mb-3 row g-2">
-                        <div class="col-md-4">
-                            <label for="showtimeDate" class="form-label">Ngày chiếu</label>
-                            <input type="date" id="showtimeDate" class="form-control" required />
-                            <div class="invalid-feedback">Vui lòng chọn ngày chiếu.</div>
+                    <div class="mb-3">
+                        <label for="showtimeDate" class="form-label">Ngày chiếu</label>
+                        <input type="date" class="form-control" id="showtimeDate" required />
+                        <div class="invalid-feedback" id="showtimeDateError">Vui lòng chọn ngày chiếu.</div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="startTime" class="form-label">Giờ bắt đầu</label>
+                            <input type="time" class="form-control" id="startTime" required />
+                            <div class="invalid-feedback" id="startTimeError">Vui lòng nhập giờ bắt đầu.</div>
                         </div>
-                        <div class="col-md-4">
-                            <label for="showtimeStart" class="form-label">Giờ bắt đầu</label>
-                            <input type="time" id="showtimeStart" class="form-control" required />
-                            <div class="invalid-feedback">Vui lòng chọn giờ bắt đầu.</div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="showtimeEnd" class="form-label">Giờ kết thúc</label>
-                            <input type="time" id="showtimeEnd" class="form-control" required />
-                            <div class="invalid-feedback">Vui lòng chọn giờ kết thúc.</div>
+                        <div class="col">
+                            <label for="endTime" class="form-label">Giờ kết thúc</label>
+                            <input type="time" class="form-control" id="endTime" required />
+                            <div class="invalid-feedback" id="endTimeError">Vui lòng nhập giờ kết thúc.</div>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="showtimeFormat" class="form-label">Định dạng</label>
-                        <input type="text" id="showtimeFormat" class="form-control" placeholder="2D / 3D / IMAX" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="showtimeTheaters" class="form-label">Phòng chiếu</label>
-                        <select id="showtimeTheaters" class="form-select" multiple required>
-                            @* List phòng chiếu từ JS *@
+                        <label for="format" class="form-label">Định dạng</label>
+                        <select id="format" class="form-select" required>
+                            <option value="">-- Chọn định dạng --</option>
+                            <option value="2D">2D</option>
+                            <option value="3D">3D</option>
+                            <option value="IMAX">IMAX</option>
+                            <option value="4DX">4DX</option>
                         </select>
-                        <div class="invalid-feedback">Vui lòng chọn ít nhất một phòng.</div>
+                        <div class="invalid-feedback">Vui lòng chọn định dạng.</div>
                     </div>
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="showtimeSaveBtn">Lưu</button>
+                <button type="button" class="btn btn-primary" id="showtimeSaveBtn">Lưu Thay Đổi</button>
             </div>
         </div>
     </div>

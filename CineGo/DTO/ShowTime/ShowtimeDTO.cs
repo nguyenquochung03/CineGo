@@ -17,7 +17,5 @@ namespace CineGo.DTO.Showtime
         public string Format { get; set; } = string.Empty;
         public int PricingRuleId { get; set; }
         public bool IsWeekend { get; set; }
-        public List<ShowtimePriceDTO> Prices { get; set; } = new();
-        public List<int> TheaterIds { get; set; } = new();
     }
 }

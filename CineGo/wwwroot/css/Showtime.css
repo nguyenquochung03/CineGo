@@ -154,7 +154,7 @@ body, .admin-main {
     margin: 0 3px;
 }
 
-/* ==== MODAL CHUNG - THIẾT KẾ RED-ORANGE ==== */
+/* ==== MODAL CHUNG ==== */
 .modal-content {
     border-radius: 0.8rem;
     border: 2px solid #ff5722;
@@ -186,54 +186,78 @@ body, .admin-main {
     border-top: 1px solid #e64a19;
 }
 
-/* ===== BUTTON MODAL ===== */
-.modal-footer .btn-primary {
-    background-color: #FF5722;
-    color: #fff;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.45rem 1.25rem;
-    transition: all 0.3s;
-}
-
-    .modal-footer .btn-primary:hover {
-        background-color: #FF7043;
-    }
-
-.modal-footer .btn-success {
-    background-color: #4CAF50;
-    color: #fff;
-    border-radius: 0.5rem;
-}
-
-    .modal-footer .btn-success:hover {
-        background-color: #43A047;
-    }
-
-.modal-footer .btn-warning {
-    background-color: #FF9800;
-    color: #fff;
-    border-radius: 0.5rem;
-}
-
-    .modal-footer .btn-warning:hover {
-        background-color: #FB8C00;
-    }
-
-.modal-footer .btn-danger {
-    background-color: #F44336;
-    color: #fff;
-    border-radius: 0.5rem;
-}
-
-    .modal-footer .btn-danger:hover {
-        background-color: #E53935;
-    }
-
 .form-control:focus {
     border-color: #ff5722;
     box-shadow: 0 0 0 0.2rem rgba(255,87,34,.25);
 }
+
+/* ===== FILTER ROW ===== */
+.row.g-2.mb-3 {
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+    /* ===== INPUTS ===== */
+    .row.g-2.mb-3 .form-control {
+        border: 2px solid #FF5722;
+        border-radius: 0.5rem;
+        padding: 0.55rem 0.75rem;
+        transition: all 0.25s ease-in-out;
+        background-color: #fff3e0;
+        color: #333;
+    }
+
+        .row.g-2.mb-3 .form-control:focus {
+            border-color: #FF3D00;
+            box-shadow: 0 0 8px rgba(255, 87, 34, 0.3);
+            outline: none;
+        }
+
+    /* ===== BUTTON SEARCH ===== */
+    .row.g-2.mb-3 .btn-success {
+        background: linear-gradient(90deg, #FF5722, #FF7043);
+        color: #fff;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        padding: 0.55rem 1rem;
+        box-shadow: 0 4px 6px rgba(255, 87, 34, 0.25);
+        transition: all 0.3s ease-in-out;
+        border: none;
+    }
+
+        .row.g-2.mb-3 .btn-success:hover {
+            background: linear-gradient(90deg, #E64A19, #FF3D00);
+            box-shadow: 0 6px 12px rgba(230, 74, 25, 0.35);
+            transform: translateY(-2px);
+        }
+
+/* ===== AUTOCOMPLETE DROPDOWN ===== */
+#filterMovieSuggestions {
+    background-color: #fff3e0;
+    border-radius: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1100;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.2);
+}
+
+    #filterMovieSuggestions .list-group-item {
+        cursor: pointer;
+        transition: all 0.2s;
+        color: #333;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.35rem;
+    }
+
+        #filterMovieSuggestions .list-group-item:hover,
+        #filterMovieSuggestions .list-group-item.active {
+            background-color: #FF7043;
+            color: #fff;
+        }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -260,4 +284,16 @@ body, .admin-main {
     .btn-sm i {
         margin-right: 0 !important;
     }
+
+    .row.g-2.mb-3 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+        .row.g-2.mb-3 .col-md-3,
+        .row.g-2.mb-3 .col-md-2,
+        .row.g-2.mb-3 .d-grid {
+            width: 100%;
+        }
 }

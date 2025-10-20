@@ -4,6 +4,7 @@ using CineGo.Models;
 using CineGo.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,9 +19,12 @@ namespace CineGo.Services.Implementations
             _context = context;
         }
 
-        public async Task<ApiResponse> GetByShowtimeAsync(int showtimeId, int page = 1, int pageSize = 10)
+        public async Task<ApiResponse> GetByShowtimeAsync(int showtimeId, int page = 1, int pageSize = 5)
         {
-            var query = _context.ShowtimePrices.Where(p => p.ShowtimeId == showtimeId);
+            var query = _context.ShowtimePrices
+                .Where(p => p.ShowtimeId == showtimeId)
+                .AsNoTracking();
+
             var totalItems = await query.CountAsync();
 
             var items = await query
@@ -51,7 +55,7 @@ namespace CineGo.Services.Implementations
 
         public async Task<ApiResponse> GetByIdAsync(int id)
         {
-            var price = await _context.ShowtimePrices.FindAsync(id);
+            var price = await _context.ShowtimePrices.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
             if (price == null)
                 return ApiResponse.ErrorResponse(404, "Không tìm thấy giá vé.");
 
@@ -75,8 +79,8 @@ namespace CineGo.Services.Implementations
 
             bool exists = await _context.ShowtimePrices
                 .AnyAsync(p => p.ShowtimeId == dto.ShowtimeId
-                               && p.TicketType.ToLower() == dto.TicketType.ToLower()
-                               && p.SeatType.ToLower() == dto.SeatType.ToLower());
+                               && p.TicketType.ToLower().Trim() == dto.TicketType.ToLower().Trim()
+                               && p.SeatType.ToLower().Trim() == dto.SeatType.ToLower().Trim());
             if (exists)
                 return ApiResponse.ErrorResponse(400, "Đã tồn tại giá vé với loại vé và loại ghế này trong suất chiếu.");
 
@@ -91,7 +95,16 @@ namespace CineGo.Services.Implementations
             _context.ShowtimePrices.Add(price);
             await _context.SaveChangesAsync();
 
-            return ApiResponse.SuccessResponse(price, "Tạo giá vé thành công.");
+            var dtoResult = new ShowtimePriceDTO
+            {
+                Id = price.Id,
+                ShowtimeId = price.ShowtimeId,
+                TicketType = price.TicketType,
+                SeatType = price.SeatType,
+                Price = price.Price
+            };
+
+            return ApiResponse.SuccessResponse(dtoResult, "Tạo giá vé thành công.");
         }
 
         public async Task<ApiResponse> UpdateAsync(ShowtimePriceUpdateDTO dto)
@@ -103,8 +116,8 @@ namespace CineGo.Services.Implementations
             bool exists = await _context.ShowtimePrices
                 .AnyAsync(p => p.ShowtimeId == price.ShowtimeId
                                && p.Id != dto.Id
-                               && p.TicketType.ToLower() == dto.TicketType.ToLower()
-                               && p.SeatType.ToLower() == dto.SeatType.ToLower());
+                               && p.TicketType.ToLower().Trim() == dto.TicketType.ToLower().Trim()
+                               && p.SeatType.ToLower().Trim() == dto.SeatType.ToLower().Trim());
             if (exists)
                 return ApiResponse.ErrorResponse(400, "Đã tồn tại giá vé với loại vé và loại ghế này trong suất chiếu.");
 
@@ -113,7 +126,17 @@ namespace CineGo.Services.Implementations
             price.Price = dto.Price;
 
             await _context.SaveChangesAsync();
-            return ApiResponse.SuccessResponse(price, "Cập nhật giá vé thành công.");
+
+            var dtoResult = new ShowtimePriceDTO
+            {
+                Id = price.Id,
+                ShowtimeId = price.ShowtimeId,
+                TicketType = price.TicketType,
+                SeatType = price.SeatType,
+                Price = price.Price
+            };
+
+            return ApiResponse.SuccessResponse(dtoResult, "Cập nhật giá vé thành công.");
         }
 
         public async Task<ApiResponse> DeleteAsync(int id)

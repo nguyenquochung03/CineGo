@@ -111,25 +111,64 @@ table {
     }
 
 /* ===== BUTTONS ===== */
-.btn-warning {
-    background-color: #FFB74D;
+.btn-red-orange {
+    background-color: #FF4500;
     color: #fff;
-    transition: all 0.3s;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 12px;
+    min-width: 36px;
+    height: 34px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(255, 69, 0, 0.3);
+    line-height: 1;
 }
 
-    .btn-warning:hover {
-        background-color: #FFA726;
+    .btn-red-orange:hover {
+        background-color: #FF5C33;
+        box-shadow: 0 3px 8px rgba(255, 87, 51, 0.4);
+        transform: translateY(-1.5px);
     }
 
-.btn-danger {
-    background-color: #FF5252;
-    color: #fff;
-    transition: all 0.3s;
+    .btn-red-orange:active {
+        background-color: #E03E00;
+        transform: translateY(0);
+    }
+
+.btn-outline-red-orange {
+    background-color: transparent;
+    color: #FF4500;
+    border: 1.8px solid #FF4500;
+    border-radius: 6px;
+    padding: 5px 12px;
+    min-width: 36px;
+    height: 34px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    line-height: 1;
 }
 
-    .btn-danger:hover {
-        background-color: #FF1744;
+    .btn-outline-red-orange:hover {
+        background-color: #FF4500;
+        color: #fff;
+        box-shadow: 0 3px 8px rgba(255, 69, 0, 0.3);
+        transform: translateY(-1.5px);
     }
+
+    .btn-outline-red-orange:active {
+        background-color: #E03E00;
+        color: #fff;
+        transform: translateY(0);
+    }
+
+.mt-3.text-center button {
+    margin: 0 3px;
+}
 
 /* ===== MODAL CHUNG ===== */
 .modal-content {
@@ -137,6 +176,7 @@ table {
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.35);
     border: none;
+    border: 2px solid #ff5722;
 }
 
 .modal-header {

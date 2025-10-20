@@ -45,6 +45,29 @@ namespace CineGo.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Autocomplete(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                return Json(new { success = true, data = new List<MovieDTO>() });
+
+            var response = await _movieService.SearchByTitleAsync(title, page: 1, pageSize: 10);
+
+            if (response.Success && response.Data is PagedResult<MovieDTO> pagedResult)
+            {
+                var movies = pagedResult.Items.Select(m => new
+                {
+                    id = m.Id,
+                    title = m.Title
+                }).ToList();
+
+                return Json(new { success = true, data = movies });
+            }
+
+            return Json(new { success = false, data = new List<object>(), message = response.Message ?? "Lỗi tìm kiếm phim" });
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> GetForm(int id = 0)
         {
             MovieCreateUpdateDTO model;

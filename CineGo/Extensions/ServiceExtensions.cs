@@ -18,6 +18,8 @@ namespace CineGo.Extensions
             services.AddScoped<IPricingRuleService, PricingRuleService>();
             services.AddScoped<IPricingRuleDayService, PricingRuleDayService>();
             services.AddScoped<IPricingDetailService, PricingDetailService>();
+            services.AddScoped<IShowtimeService, ShowtimeService>();
+            services.AddScoped<IShowtimePriceService, ShowtimePriceService>();
         }
     }
 }
