@@ -182,10 +182,6 @@ body, .admin-main {
     border-bottom: 1px solid #FF5722;
 }
 
-.modal-footer {
-    border-top: 1px solid #e64a19;
-}
-
 .form-control:focus {
     border-color: #ff5722;
     box-shadow: 0 0 0 0.2rem rgba(255,87,34,.25);

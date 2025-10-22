@@ -116,7 +116,7 @@ document.getElementById('ruleSaveBtn').addEventListener('click', async () => {
 
     // Kích hoạt HTML5 Validation (Client-side)
     if (!form.checkValidity()) {
-        form.classList.add('was-validated'); // Thêm class để hiển thị lỗi Bootstrap
+        form.classList.add('was-validated');
         return;
     }
     form.classList.remove('was-validated');

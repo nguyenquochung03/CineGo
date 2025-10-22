@@ -1,0 +1,9 @@
+﻿namespace CineGo.DTO.TheaterTree
+{
+    public class TheaterNodeDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public bool IsSelected { get; set; }
+    }
+}

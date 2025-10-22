@@ -20,6 +20,7 @@ namespace CineGo.Extensions
             services.AddScoped<IPricingDetailService, PricingDetailService>();
             services.AddScoped<IShowtimeService, ShowtimeService>();
             services.AddScoped<IShowtimePriceService, ShowtimePriceService>();
+            services.AddScoped<ITheaterShowtimeService, TheaterShowtimeService>();
         }
     }
 }

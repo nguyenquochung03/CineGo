@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\controllers\\pricingdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\controllers\\pricingrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\controllers\\pricingrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\pricingrule.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\pricingrule.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\services\\implementations\\pricingdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\services\\implementations\\pricingdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,22 +32,36 @@
               "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
               "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
               "RelativeToolTip": "CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBcAAABYAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:15:30.617Z",
+              "WhenOpened": "2025-10-21T08:24:46.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PricingRuleController.cs",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "RelativeToolTip": "CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCEAAAAJAAAAAAAAAA==",
+              "Title": "PricingRule.js",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\PricingRule.js",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\PricingRule.js",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\PricingRule.js",
+              "RelativeToolTip": "CineGo\\wwwroot\\js\\PricingRule.js",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAAwHYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-21T08:24:11.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PricingDetailService.cs",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Services\\Implementations\\PricingDetailService.cs",
+              "RelativeDocumentMoniker": "CineGo\\Services\\Implementations\\PricingDetailService.cs",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Services\\Implementations\\PricingDetailService.cs",
+              "RelativeToolTip": "CineGo\\Services\\Implementations\\PricingDetailService.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:15:11.163Z"
+              "WhenOpened": "2025-10-21T08:23:50.66Z",
+              "EditorCaption": ""
             }
           ]
         }

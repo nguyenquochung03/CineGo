@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CineGo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bbc60c63740d8129d0454c6e03211d001e24be0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+668579d153d34e96948f517dfddf7aa6edb5822d")]
 [assembly: System.Reflection.AssemblyProductAttribute("CineGo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CineGo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,20 @@
+﻿@{
+    var showtimeId = ViewBag.ShowtimeId as int? ?? 0;
+    var showtimeTitle = ViewBag.ShowtimeTitle as string ?? "";
+}
+
+<link rel="stylesheet" href="~/css/TheaterTree.css" />
+
+<div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Rạp chiếu</h5>
+    <div class="d-flex gap-2">
+        <button id="btnCollapseTree" class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-diagram-2 me-1"></i> Thu gọn
+        </button>
+    </div>
+</div>
+
+<div id="theaterTreeContainer" data-showtime-id="@ViewBag.ShowtimeId"
+     class="theater-tree-container border rounded p-3">
+</div>
+

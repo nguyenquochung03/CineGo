@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\controllers\\pricingdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\controllers\\pricingdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\theatertree.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\theatertree.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\controllers\\pricingrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\controllers\\pricingrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\theatertree.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\theatertree.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\showtime.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\showtime.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\views\\theatertree\\_theatertree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\views\\theatertree\\_theatertree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\views\\showtime\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\views\\showtime\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\controllers\\theatertreecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\controllers\\theatertreecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\areas\\admin\\views\\showtime\\_showtimelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\areas\\admin\\views\\showtime\\_showtimelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\showtime.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\showtime.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PricingDetailController.cs",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
-              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
-              "RelativeToolTip": "CineGo\\Areas\\Admin\\Controllers\\PricingDetailController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBcAAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:15:30.617Z",
+              "DocumentIndex": 1,
+              "Title": "TheaterTree.css",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\TheaterTree.css",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\TheaterTree.css",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\TheaterTree.css",
+              "RelativeToolTip": "CineGo\\wwwroot\\css\\TheaterTree.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-21T06:34:07.199Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PricingRuleController.cs",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "RelativeToolTip": "CineGo\\Areas\\Admin\\Controllers\\PricingRuleController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCEAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Showtime.css",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\Showtime.css",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\Showtime.css",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\Showtime.css",
+              "RelativeToolTip": "CineGo\\wwwroot\\css\\Showtime.css",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAAAP8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-21T06:28:38.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Views\\Showtime\\Index.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Views\\Showtime\\Index.cshtml",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Views\\Showtime\\Index.cshtml",
+              "RelativeToolTip": "CineGo\\Areas\\Admin\\Views\\Showtime\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T03:42:29.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TheaterTreeController.cs",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\TheaterTreeController.cs",
+              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Controllers\\TheaterTreeController.cs",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Controllers\\TheaterTreeController.cs",
+              "RelativeToolTip": "CineGo\\Areas\\Admin\\Controllers\\TheaterTreeController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAUwGAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:15:11.163Z",
+              "WhenOpened": "2025-10-20T07:54:41.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_TheaterTree.cshtml",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Views\\TheaterTree\\_TheaterTree.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Views\\TheaterTree\\_TheaterTree.cshtml",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Views\\TheaterTree\\_TheaterTree.cshtml",
+              "RelativeToolTip": "CineGo\\Areas\\Admin\\Views\\TheaterTree\\_TheaterTree.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T03:19:09.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TheaterTree.js",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\TheaterTree.js",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\TheaterTree.js",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\TheaterTree.js",
+              "RelativeToolTip": "CineGo\\wwwroot\\js\\TheaterTree.js",
+              "ViewState": "AgIAAGEBAAAAAAAAAAAAAGkBAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-20T08:38:00.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ShowtimeList.cshtml",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Views\\Showtime\\_ShowtimeList.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Areas\\Admin\\Views\\Showtime\\_ShowtimeList.cshtml",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Areas\\Admin\\Views\\Showtime\\_ShowtimeList.cshtml",
+              "RelativeToolTip": "CineGo\\Areas\\Admin\\Views\\Showtime\\_ShowtimeList.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAD8AAAB0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T08:27:08.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ShowTime.js",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\ShowTime.js",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\ShowTime.js",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\ShowTime.js",
+              "RelativeToolTip": "CineGo\\wwwroot\\js\\ShowTime.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-20T08:28:55.025Z",
               "EditorCaption": ""
             }
           ]
