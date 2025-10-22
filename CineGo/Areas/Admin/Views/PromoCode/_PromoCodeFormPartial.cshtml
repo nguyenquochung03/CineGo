@@ -1,0 +1,72 @@
+﻿@model CineGo.DTO.PromoCode.PromoCodeDTO
+
+<form asp-action="Save" asp-controller="PromoCode" method="post"
+      data-ajax="true" data-ajax-method="POST"
+      onsubmit="return submitPromoForm(this)">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="Code" class="form-label">Mã Giảm Giá</label>
+            <input asp-for="Code" class="form-control" />
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="DiscountType" class="form-label">Loại giảm</label>
+            <select asp-for="DiscountType" class="form-select">
+                <option value="Percent">Phần trăm</option>
+                <option value="Amount">Số tiền</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Value" class="form-label">Giá trị</label>
+            <input asp-for="Value" type="number" class="form-control" />
+            <span asp-validation-for="Value" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="UsageCount" class="form-label">Số lần sử dụng</label>
+            <input asp-for="UsageCount" type="number" class="form-control" />
+            <span asp-validation-for="UsageCount" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="ValidFrom" class="form-label">Từ ngày</label>
+            <input asp-for="ValidFrom" type="date" class="form-control" />
+            <span asp-validation-for="ValidFrom" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="ValidTo" class="form-label">Đến ngày</label>
+            <input asp-for="ValidTo" type="date" class="form-control" />
+            <span asp-validation-for="ValidTo" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="Description" class="form-label">Mô tả</label>
+            <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 form-check mt-2">
+            <input asp-for="IsActive" class="form-check-input" />
+            <label asp-for="IsActive" class="form-check-label">Hoạt động</label>
+        </div>
+    </div>
+
+    <div class="modal-footer justify-content-between mt-3">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button type="submit" class="btn btn-red-orange">
+            <i class="bi bi-save me-1"></i> @(Model.Id == 0 ? "Thêm" : "Cập nhật")
+        </button>
+    </div>
+</form>
+
+<script>
+    // Kích hoạt lại validation client-side cho partial view
+    $.validator.unobtrusive.parse("#promoFormContainer");
+</script>

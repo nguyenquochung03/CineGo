@@ -76,6 +76,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2luZ1J1bGVcX1ByaWNpbmdSdWxlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/PromoCode/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW9Db2RlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/PromoCode/_PromoCodeFormPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW9Db2RlXF9Qcm9tb0NvZGVGb3JtUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Areas/Admin/Views/Region/_List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVnaW9uXF9MaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

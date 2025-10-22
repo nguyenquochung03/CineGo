@@ -29,7 +29,32 @@ namespace CineGo.Services.Helpers
         }
 
         // Hàm tạo JWT token
-        public static string GenerateJwtToken(UserResponseDTO user, string secretKey, int expireHours = 2)
+        //public static string GenerateJwtToken(UserResponseDTO user, string secretKey, int expireHours = 2)
+        //{
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //    var key = Encoding.ASCII.GetBytes(secretKey);
+
+        //    var tokenDescriptor = new SecurityTokenDescriptor
+        //    {
+        //        Subject = new ClaimsIdentity(new[]
+        //        {
+        //            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        //            new Claim(ClaimTypes.Name, user.Name),
+        //            new Claim(ClaimTypes.Email, user.Email),
+        //            new Claim(ClaimTypes.Role, user.Role)
+        //        }),
+        //        Expires = DateTime.UtcNow.AddHours(expireHours),
+        //        SigningCredentials = new SigningCredentials(
+        //            new SymmetricSecurityKey(key),
+        //            SecurityAlgorithms.HmacSha256Signature)
+        //    };
+
+        //    var token = tokenHandler.CreateToken(tokenDescriptor);
+        //    return tokenHandler.WriteToken(token);
+        //}
+
+        // Hàm tạo JWT token (thời gian hết hạn 1 phút để test)
+        public static string GenerateJwtToken(UserResponseDTO user, string secretKey, int expireMinutes = 1)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(secretKey);
@@ -38,12 +63,12 @@ namespace CineGo.Services.Helpers
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role)
-                }),
-                Expires = DateTime.UtcNow.AddHours(expireHours),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Name),
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role)
+        }),
+                Expires = DateTime.UtcNow.AddMinutes(expireMinutes), // hết hạn sau 1 phút
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)
@@ -52,5 +77,6 @@ namespace CineGo.Services.Helpers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
     }
 }

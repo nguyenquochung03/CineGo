@@ -6,6 +6,19 @@
 
 <link rel="stylesheet" href="~/css/Adminlogin.css" />
 
+@{
+    var alertMessage = !string.IsNullOrEmpty(ViewBag.ExpiredMessage as string)
+        ? ViewBag.ExpiredMessage
+        : ViewBag.Error as string;
+}
+
+@if (!string.IsNullOrEmpty(alertMessage))
+{
+    <div class="alert @(ViewBag.ExpiredMessage != null ? "alert-warning" : "alert-danger")">
+        @alertMessage
+    </div>
+}
+
 <div class="login-page">
     <div class="login-container">
         <div class="text-center login-banner">

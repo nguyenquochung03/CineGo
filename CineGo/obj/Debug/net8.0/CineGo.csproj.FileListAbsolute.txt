@@ -342,3 +342,4 @@ C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\refint\CineGo.dll
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.pdb
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\CineGo.genruntimeconfig.cache
 C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\ref\CineGo.dll
+C:\Files\Codes\.Net\MVC\CineGo\CineGo\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

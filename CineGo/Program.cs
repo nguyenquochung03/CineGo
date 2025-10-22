@@ -53,14 +53,19 @@ namespace CineGo
             app.UseRouting();
             app.UseSession();
 
-            // Middleware để chuyển token từ cookie sang header Authorization
             app.Use(async (context, next) =>
             {
-                var token = context.Request.Cookies["jwt"];
-                if (!string.IsNullOrEmpty(token))
+                var path = context.Request.Path.Value?.ToLower();
+
+                if (!path.Contains("/admin/adminauth/login"))
                 {
-                    context.Request.Headers["Authorization"] = $"Bearer {token}";
+                    var token = context.Request.Cookies["jwt"];
+                    if (!string.IsNullOrEmpty(token))
+                    {
+                        context.Request.Headers["Authorization"] = $"Bearer {token}";
+                    }
                 }
+
                 await next();
             });
 
@@ -90,6 +95,16 @@ namespace CineGo
                     {
                         context.Response.Redirect($"/Error/{statusCode}");
                     }
+                }
+            });
+
+            app.Use(async (context, next) =>
+            {
+                await next();
+
+                if (context.Response.StatusCode == 401)
+                {
+                    context.Response.Cookies.Delete("jwt");
                 }
             });
 

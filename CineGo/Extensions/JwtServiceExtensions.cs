@@ -34,7 +34,22 @@ namespace CineGo.Extensions
                 {
                     OnAuthenticationFailed = context =>
                     {
-                        Console.WriteLine("Token lỗi: " + context.Exception.Message);
+                        Console.WriteLine("Token error: " + context.Exception.Message);
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context =>
+                    {
+                        context.HandleResponse();
+
+                        // Nếu đang ở login page → không redirect
+                        var path = context.Request.Path.Value?.ToLower();
+                        if (path.Contains("/admin/adminauth/login"))
+                            return Task.CompletedTask;
+
+                        if (context.Request.Cookies.ContainsKey("jwt"))
+                            context.Response.Cookies.Delete("jwt");
+
+                        context.Response.Redirect("/Admin/AdminAuth/Login?expired=true");
                         return Task.CompletedTask;
                     }
                 };
