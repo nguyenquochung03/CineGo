@@ -12,5 +12,7 @@ namespace CineGo.DTO.Review
 
         [Range(0, 10, ErrorMessage = "Điểm đánh giá phải từ 0 đến 10.")]
         public int Rating { get; set; }
+        public int Likes { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

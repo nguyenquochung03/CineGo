@@ -164,12 +164,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcQ3VzdG9tRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/MovieDetail/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVEZXRhaWxcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/MovieList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVMaXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Shared/Error.cshtml]

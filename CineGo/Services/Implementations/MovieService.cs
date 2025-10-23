@@ -339,5 +339,121 @@ namespace CineGo.Services.Implementations
 
             return ApiResponse.SuccessResponse(result);
         }
+
+        public async Task<ApiResponse> GetNowShowingAsync(int page = 1, int pageSize = 8)
+        {
+            if (page <= 0) page = 1;
+            if (pageSize <= 0) pageSize = 10;
+
+            var today = DateTime.Today;
+
+            var query = _context.Movies
+                .Where(m => m.ReleaseDate <= today && m.Showtimes.Any(s => s.Date >= today))
+                .OrderBy(m => m.Title)
+                .AsQueryable();
+
+            var totalItems = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            var movies = await query
+                .Include(m => m.Posters)
+                .Include(m => m.Reviews)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(m => new MovieDTO
+                {
+                    Id = m.Id,
+                    Title = m.Title,
+                    Slug = m.Slug,
+                    Runtime = m.Runtime,
+                    Rating = m.Rating,
+                    AgeLimit = m.AgeLimit,
+                    ReleaseDate = m.ReleaseDate,
+                    Synopsis = m.Synopsis,
+                    TrailerUrl = m.TrailerUrl,
+                    Posters = m.Posters.Select(p => new MoviePosterDTO
+                    {
+                        Id = p.Id,
+                        Url = p.Url,
+                        Order = p.Order
+                    }).ToList(),
+                    Reviews = m.Reviews.Select(r => new ReviewDTO
+                    {
+                        Id = r.Id,
+                        Content = r.Content,
+                        Rating = r.Rating
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            var result = new PagedResult<MovieDTO>
+            {
+                Page = page,
+                PageSize = pageSize,
+                TotalItems = totalItems,
+                TotalPages = totalPages,
+                Items = movies
+            };
+
+            return ApiResponse.SuccessResponse(result);
+        }
+
+        public async Task<ApiResponse> GetComingSoonAsync(int page = 1, int pageSize = 8)
+        {
+            if (page <= 0) page = 1;
+            if (pageSize <= 0) pageSize = 10;
+
+            var today = DateTime.Today;
+
+            var query = _context.Movies
+                .Where(m => m.ReleaseDate > today)
+                .OrderBy(m => m.ReleaseDate)
+                .AsQueryable();
+
+            var totalItems = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            var movies = await query
+                .Include(m => m.Posters)
+                .Include(m => m.Reviews)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(m => new MovieDTO
+                {
+                    Id = m.Id,
+                    Title = m.Title,
+                    Slug = m.Slug,
+                    Runtime = m.Runtime,
+                    Rating = m.Rating,
+                    AgeLimit = m.AgeLimit,
+                    ReleaseDate = m.ReleaseDate,
+                    Synopsis = m.Synopsis,
+                    TrailerUrl = m.TrailerUrl,
+                    Posters = m.Posters.Select(p => new MoviePosterDTO
+                    {
+                        Id = p.Id,
+                        Url = p.Url,
+                        Order = p.Order
+                    }).ToList(),
+                    Reviews = m.Reviews.Select(r => new ReviewDTO
+                    {
+                        Id = r.Id,
+                        Content = r.Content,
+                        Rating = r.Rating
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            var result = new PagedResult<MovieDTO>
+            {
+                Page = page,
+                PageSize = pageSize,
+                TotalItems = totalItems,
+                TotalPages = totalPages,
+                Items = movies
+            };
+
+            return ApiResponse.SuccessResponse(result);
+        }
     }
 }

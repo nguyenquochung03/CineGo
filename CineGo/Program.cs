@@ -43,7 +43,7 @@ namespace CineGo
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler($"/Error/HandleError/{404}");
                 app.UseHsts();
             }
 
@@ -131,7 +131,7 @@ namespace CineGo
             // Route mặc định cho người dùng (Client)
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=MovieList}/{action=Index}/{id?}");
 
             app.Run();
         }

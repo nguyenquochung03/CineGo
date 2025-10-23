@@ -11,5 +11,7 @@ namespace CineGo.Services.Interfaces
         Task<ApiResponse> UpdateAsync(int id, MovieCreateUpdateDTO movie);
         Task<ApiResponse> DeleteAsync(int id);
         Task<ApiResponse> SearchByTitleAsync(string title, int page = 1, int pageSize = 10);
+        Task<ApiResponse> GetNowShowingAsync(int page = 1, int pageSize = 10);
+        Task<ApiResponse> GetComingSoonAsync(int page = 1, int pageSize = 10);
     }
 }

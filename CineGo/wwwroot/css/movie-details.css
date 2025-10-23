@@ -1,0 +1,73 @@
+﻿.movie-details-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.movie-left .movie-poster {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.movie-left .btn-book {
+    font-size: 1.1rem;
+}
+
+.movie-synopsis h5 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.movie-right .movie-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.movie-rating .stars i {
+    font-size: 1.2rem;
+}
+
+.movie-meta .age-badge {
+    background-color: #ff4d4f;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.movie-basic p {
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.movie-reviews {
+    margin-top: 2rem;
+}
+
+.review-form .star-select {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+    .review-form .star-select:hover,
+    .review-form .star-select.active {
+        color: #ffc107;
+    }
+
+.review-item .score {
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+.review-item p {
+    font-size: 0.95rem;
+}
+
+textarea#reviewContent {
+    resize: none;
+}
+
+#charCount {
+    font-size: 0.85rem;
+}

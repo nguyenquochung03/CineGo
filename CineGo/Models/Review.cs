@@ -21,7 +21,7 @@ namespace CineGo.Models
         [Required(ErrorMessage = "Nội dung đánh giá không được để trống")]
         [StringLength(1000, ErrorMessage = "Nội dung đánh giá không được vượt quá 1000 ký tự")]
         public string Content { get; set; } = null!;
-
+        public int Likes { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Người dùng viết đánh giá

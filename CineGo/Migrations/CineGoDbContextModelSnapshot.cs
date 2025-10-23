@@ -481,6 +481,9 @@ namespace CineGo.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Likes")
+                        .HasColumnType("int");
+
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 

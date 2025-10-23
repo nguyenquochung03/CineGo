@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Phim";
+}
+<head>
+    <link rel="stylesheet" href="@Url.Content("~/css/movie.css")" />
+</head>
+
+<div class="text-center mb-4">
+    <button class="btn btn-cinego me-2" id="btnNowShowing">Phim đang chiếu</button>
+    <button class="btn btn-cinego" id="btnComingSoon">Phim sắp chiếu</button>
+</div>
+
+<div id="movieContainer" class="row g-4"></div>
+
+<div class="text-center mb-4 btn-view-more">
+    <button class="btn btn-cinego" id="btnLoadMore" style="display:none;">Xem thêm</button>
+</div>
+
+<!-- JS load cuối body -->
+@section Scripts {
+    <script src="@Url.Content("~/js/movie.js")"></script>
+}

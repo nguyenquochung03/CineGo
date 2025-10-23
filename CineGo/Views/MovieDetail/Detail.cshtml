@@ -1,0 +1,119 @@
+﻿@model CineGo.DTO.Movie.MovieDTO
+
+@{
+    ViewData["Title"] = Model.Title;
+    double ratingValue = 0;
+    double.TryParse(Model.Rating, out ratingValue);
+}
+
+<link rel="stylesheet" href="~/css/movie-details.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+<div class="movie-details-container container my-5">
+    <div class="row">
+        <!-- BÊN TRÁI -->
+        <div class="col-md-4 text-center movie-left">
+            <img src="@(Model.Posters?.FirstOrDefault()?.Url ?? "/images/default-movie.png")"
+                 alt="@Model.Title" class="movie-poster img-fluid rounded shadow" />
+            <button class="btn btn-danger mt-3 w-75">🎟️ Đặt vé ngay</button>
+        </div>
+
+        <!-- BÊN PHẢI -->
+        <div class="col-md-8 movie-right">
+            <h2 class="movie-title">@Model.Title</h2>
+
+            <!-- Rating -->
+            <div class="movie-rating mb-2">
+                <div class="stars d-inline-block me-2">
+                    @{
+                        int stars = (int)Math.Round(ratingValue / 2); // Thang điểm 10 → 5 sao
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            <i class="bi @(i <= stars ? "bi-star-fill text-warning" : "bi-star text-secondary")"></i>
+                        }
+                    }
+                </div>
+                <span class="rating-score">@ratingValue.ToString("0.0") / 10</span>
+            </div>
+
+            <div class="movie-meta text-muted mb-3">
+                <span class="age-badge">@Model.AgeLimit+</span> |
+                <span>Phát hành: @Model.ReleaseDate.ToString("dd/MM/yyyy")</span>
+            </div>
+
+            <div class="movie-basic">
+                <p><strong>Slug:</strong> @(string.IsNullOrWhiteSpace(Model.Slug) ? "Chưa có" : Model.Slug)</p>
+                <p><strong>Thời lượng:</strong> @(Model.Runtime > 0 ? $"{Model.Runtime} phút" : "Đang cập nhật")</p>
+            </div>
+
+            <div class="movie-synopsis mt-4">
+                <h5>Tóm tắt nội dung</h5>
+                <p>@(string.IsNullOrWhiteSpace(Model.Synopsis) ? "Chưa có nội dung tóm tắt cho phim này." : Model.Synopsis)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHẦN ĐÁNH GIÁ -->
+    <div class="movie-reviews mt-5">
+        <h4>⭐ Xếp hạng & Đánh giá phim</h4>
+
+        <div class="review-form mt-3">
+            <textarea id="reviewContent" class="form-control mb-2" rows="3" placeholder="Viết cảm nhận của bạn..."></textarea>
+            <div class="rating-select mb-3">
+                <label>Chọn số sao:</label>
+                <span id="ratingStars">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <i class="bi bi-star star-select" data-value="@i"></i>
+                    }
+                </span>
+            </div>
+            <button class="btn btn-danger" id="btnSubmitReview">Đánh giá phim</button>
+            <p class="text-muted small mt-2">
+                * Mỗi tài khoản chỉ được đánh giá một lần cho mỗi lượt truy cập.<br />
+                * Bạn phải là <strong>thành viên</strong> và đã mua vé xem phim để tham gia đánh giá.<br />
+                * Bạn có thể kiểm tra lại phần đánh giá của mình trong <strong>My Cinema</strong>.
+            </p>
+        </div>
+
+        <hr />
+
+        <div id="reviewList">
+            @if (Model.Reviews != null && Model.Reviews.Any())
+            {
+                foreach (var review in Model.Reviews.OrderByDescending(r => r.CreatedAt))
+                {
+                    double reviewRating = 0;
+                    double.TryParse(review.Rating.ToString(), out reviewRating);
+                    int rStars = (int)Math.Round(reviewRating / 2);
+
+                    <div class="review-item mb-4 p-3 border rounded shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong>Khách</strong>
+                            <span>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <i class="bi @(i <= rStars ? "bi-star-fill text-warning" : "bi-star text-muted")"></i>
+                                }
+                                <span class="score">(@reviewRating.ToString("0.0") / 10)</span>
+                            </span>
+                        </div>
+                        <p class="mt-2">@review.Content</p>
+                        <div class="review-meta text-muted small">
+                            <span>@review.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span> ·
+                            <span>❤️ @review.Likes lượt thích</span>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-muted">Chưa có đánh giá nào cho phim này.</p>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/movie-details.js"></script>
+}

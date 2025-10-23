@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\movie-details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\movie-details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\views\\moviedetail\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\moviedetail\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\controllers\\moviedetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\controllers\\moviedetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\movie-details.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\movie-details.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "movie-details.js",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\movie-details.js",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\movie-details.js",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\movie-details.js",
+              "RelativeToolTip": "CineGo\\wwwroot\\js\\movie-details.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-23T12:30:50.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "movie-details.css",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\movie-details.css",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\movie-details.css",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\movie-details.css",
+              "RelativeToolTip": "CineGo\\wwwroot\\css\\movie-details.css",
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwDEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-23T12:25:21.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\MovieDetail\\Detail.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\MovieDetail\\Detail.cshtml",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\MovieDetail\\Detail.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\MovieDetail\\Detail.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAC0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-23T12:24:00.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MovieDetailController.cs",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Controllers\\MovieDetailController.cs",
+              "RelativeDocumentMoniker": "CineGo\\Controllers\\MovieDetailController.cs",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Controllers\\MovieDetailController.cs",
+              "RelativeToolTip": "CineGo\\Controllers\\MovieDetailController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T12:21:45.06Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
