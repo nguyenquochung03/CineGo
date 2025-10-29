@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CineGo.DTO.RegionDTO>
+@{
+    ViewData["Title"] = "Mua vé | CINEGO";
+}
+
+<link rel="stylesheet" href="~/css/booking.css" />
+<link rel="stylesheet" href="~/css/booking_schedule.css" />
+<link rel="stylesheet" href="~/css/booking_choose_cinema.css" />
+
+<div class="booking-container mt-4">
+    <!-- Lịch chọn ngày -->
+    <div class="week-calendar">
+        <div class="month-row" id="month-row"></div>
+        <div class="day-row" id="day-row"></div>
+    </div>
+    <!-- Chọn region - city - cinema -->
+    <div class="region-cinema-container d-flex gap-4 mb-4">
+        <!-- Region Sidebar -->
+        <div class="region-sidebar">
+            <h6 class="fw-bold">Vùng</h6>
+            <ul class="list-unstyled" id="region-list">
+                @foreach (var r in Model)
+                {
+                    <li class="region-item py-1" data-id="@r.Id">@r.Name</li>
+                }
+            </ul>
+        </div>
+
+        <!-- City & Cinema -->
+        <div class="city-cinema w-100">
+            <h6 class="fw-bold">Thành phố</h6>
+            <div class="d-flex flex-wrap gap-2 mb-3" id="city-list"></div>
+
+            <h6 class="fw-bold">Rạp</h6>
+            <div class="cinema-list" id="cinema-list"></div>
+        </div>
+    </div>
+
+    <!-- Hiển thị lựa chọn của người dùng -->
+    <div class="selected-info">
+        <p id="selected-date" class="mb-1"><strong>Ngày đã chọn:</strong> <span>Chưa chọn</span></p>
+        <p id="selected-cinema" class="mb-1"><strong>Rạp đã chọn:</strong> <span>Chưa chọn</span></p>
+    </div>
+
+    <!-- Hiển thị danh sách phim -->
+    <div id="movie-section">
+        <h5 class="fw-bold mb-3">Giờ chiếu</h5>
+        <p class="text-muted small mb-4">Thời gian chiếu phim có thể chênh lệch 15 phút do chiếu quảng cáo, giới thiệu phim ra rạp</p>
+        <div id="movie-list"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/booking.js"></script>
+}

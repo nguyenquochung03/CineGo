@@ -1,74 +1,105 @@
-﻿/* ============================
-   Movie Container
-============================ */
+﻿
+/* ============================
+           MOVIE CONTAINER GRID
+        ============================ */
 #movieContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     margin-top: 40px;
+    justify-items: center;
 }
 
-    #movieContainer .no-movies {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        font-size: 1.2rem;
-        color: #999;
-        font-weight: 500;
-        text-align: center;
+#movieContainer .no-movies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 1.2rem;
+    color: #999;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Responsive cho các màn nhỏ hơn */
+@media (max-width: 1200px) {
+    #movieContainer {
+        grid-template-columns: repeat(3, 1fr);
     }
+}
+
+@media (max-width: 768px) {
+    #movieContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #movieContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 /* ============================
-   Movie Card
-============================ */
+           MOVIE CARD
+        ============================ */
 .movie-card {
     background: linear-gradient(180deg, #fff, #fdf3f3);
     border-radius: 20px;
     overflow: hidden;
-    border: 3px solid rgba(220, 20, 60, 0.25);
+    border: 3px solid rgba(220, 20, 60, 0.55);
     box-shadow: 0 4px 12px rgba(220, 20, 60, 0.25), 0 6px 18px rgba(220, 20, 60, 0.25);
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     margin: 0 auto;
     position: relative;
-    max-width: 240px;
+    max-width: 300px;
 }
 
     .movie-card:hover {
         transform: translateY(-8px) scale(1.03);
         box-shadow: 0 12px 28px rgba(220, 20, 60, 0.35);
-        border-color: rgba(220, 20, 60, 0.55);
     }
 
 /* ============================
-   Poster phim
-============================ */
-    .movie-card img {
-        height: 360px;
-        object-fit: cover;
+           POSTER PHIM (FULL WIDTH)
+        ============================ */
+.poster-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3; /* Giữ tỉ lệ poster 2:3 */
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .poster-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Full chiều ngang + cắt vừa khung */
+        object-position: center;
+        display: block;
         transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .movie-card:hover img {
-        transform: scale(1.05);
-        filter: brightness(0.85);
-    }
-
+.movie-card:hover img {
+    transform: scale(1.07);
+    filter: brightness(0.85);
+}
 
 /* ============================
-   Overlay hiển thị khi hover ảnh
-============================ */
+           OVERLAY HIỆN KHI HOVER
+        ============================ */
 .movie-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 360px;
+    height: 100%;
     background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
@@ -85,8 +116,8 @@
 }
 
 /* ============================
-   Nút trong overlay
-============================ */
+           NÚT TRONG OVERLAY
+        ============================ */
 .btn-movie-action {
     background: linear-gradient(135deg, #DC143C, #ff4b2b);
     color: #fff;
@@ -117,8 +148,8 @@
 }
 
 /* ============================
-   Movie Info
-============================ */
+           THÔNG TIN PHIM
+        ============================ */
 .movie-title {
     font-weight: 700;
     font-size: 1rem;
@@ -139,18 +170,21 @@
     margin-bottom: 14px;
 }
 
+/* ============================
+           GIỚI HẠN ĐỘ TUỔI
+        ============================ */
 .movie-age {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 1px;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     color: #fff;
     font-weight: 700;
     font-size: 0.75rem;
-    flex-shrink: 0;
+    margin-right: 4px;
 }
 
 .age-0, .age-G, .age-P {
@@ -178,8 +212,8 @@
 }
 
 /* ============================
-   Buttons (Chung)
-============================ */
+           BUTTONS (CHUNG)
+        ============================ */
 .text-center.mb-4 {
     display: flex;
     justify-content: center;
@@ -216,9 +250,8 @@
     }
 
 /* ============================
-   Responsive
-============================ */
-
+           RESPONSIVE TEXT
+        ============================ */
 @media (max-width: 576px) {
     .movie-title {
         font-size: 0.9rem;

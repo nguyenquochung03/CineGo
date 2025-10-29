@@ -1,73 +1,278 @@
-﻿.movie-details-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+﻿/* ===============================
+   GIAO DIỆN CHI TIẾT PHIM (Movie Details)
+================================= */
+.movie-details-container {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    line-height: 1.6;
+    margin-top: 2rem;
 }
 
+/* ========== CỘT TRÁI ========== */
 .movie-left .movie-poster {
     width: 100%;
-    max-width: 300px;
+    max-width: 340px;
     height: auto;
+    border-radius: 14px;
     object-fit: cover;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
-.movie-left .btn-book {
-    font-size: 1.1rem;
-}
-
-.movie-synopsis h5 {
+.btn-book {
+    background: #dc3545;
+    color: #fff;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+    .btn-book:hover {
+        background: #b21f2d;
+        transform: translateY(-2px);
+    }
+
+/* ========== CỘT PHẢI ========== */
 .movie-right .movie-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 0.6rem;
 }
 
 .movie-rating .stars i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin-right: 2px;
 }
 
-.movie-meta .age-badge {
+.movie-rating .rating-score {
+    font-weight: 500;
+    color: #555;
+}
+
+.movie-meta {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.age-badge {
     background-color: #ff4d4f;
     color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
     font-size: 0.9rem;
 }
 
 .movie-basic p {
     margin-bottom: 0.3rem;
-    font-size: 0.95rem;
+    font-size: 0.96rem;
 }
 
-.movie-reviews {
-    margin-top: 2rem;
+/* ========== TÓM TẮT NỘI DUNG ========== */
+.movie-synopsis {
+    margin-top: 1.5rem;
 }
 
-.review-form .star-select {
-    font-size: 1.3rem;
-    cursor: pointer;
-}
-
-    .review-form .star-select:hover,
-    .review-form .star-select.active {
-        color: #ffc107;
+    .movie-synopsis h5 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
     }
 
-.review-item .score {
-    font-size: 0.9rem;
-    margin-left: 5px;
+/* ===============================
+   GIAO DIỆN ĐÁNH GIÁ PHIM (Reviews)
+================================= */
+.review-box {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.review-item p {
-    font-size: 0.95rem;
-}
-
-textarea#reviewContent {
-    resize: none;
+/* Header */
+.review-header h4 {
+    font-weight: 700;
+    color: #111;
 }
 
 #charCount {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ========== BỐ CỤC CHÍNH 3 CỘT ========== */
+.review-panel {
+    display: grid;
+    grid-template-columns: 180px 1fr 150px;
+    gap: 1rem;
+    align-items: stretch;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* --- Cột trái --- */
+.review-left {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #e0e0e0;
+    padding: 1rem;
+}
+
+    .review-left p {
+        margin-bottom: 0.5rem;
+        color: #333;
+        font-size: 0.95rem;
+    }
+
+.rating-stars i {
+    font-size: 1.3rem;
+    color: #ffcc00;
+    margin: 0 2px;
+}
+
+.rating-score {
+    display: block;
+    margin-top: 0.25rem;
+    color: #555;
+    font-weight: 600;
+}
+
+/* --- Cột giữa --- */
+.review-middle {
+    background-color: #f9f9f9;
+    padding: 1rem;
+}
+
+.review-textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    resize: none;
+    transition: all 0.2s ease;
+    min-height: 70px;
+}
+
+    .review-textarea:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 6px rgba(220, 53, 69, 0.25);
+    }
+
+/* --- Cột phải --- */
+.review-right {
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-review-submit {
+    background-color: transparent;
+    border: none;
+    color: #f4d35e;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    height: 100%;
+    width: 100%;
+}
+
+    .btn-review-submit:hover {
+        background-color: #f4d35e;
+        color: #1c1c1c;
+    }
+
+/* ===============================
+   DANH SÁCH REVIEW NGƯỜI DÙNG
+================================= */
+.review-item {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .review-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .review-item strong {
+        font-size: 1rem;
+    }
+
+    .review-item .score {
+        font-size: 0.9rem;
+        color: #777;
+        margin-left: 4px;
+    }
+
+    .review-item p {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+.review-meta {
     font-size: 0.85rem;
+    color: #888;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 992px) {
+    .movie-right .movie-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .movie-left {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .review-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .review-left {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .review-right {
+        height: 48px;
+    }
+
+    .btn-review-submit {
+        font-size: 1rem;
+    }
+
+    .review-textarea {
+        min-height: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-title {
+        font-size: 1.6rem;
+    }
+
+    .btn-book {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    .review-box {
+        padding: 1rem;
+    }
 }

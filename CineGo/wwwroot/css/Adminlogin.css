@@ -14,7 +14,7 @@
 }
 
 .login-page {
-    background: url('/images/l_background.jpg') no-repeat center center;
+    background: url('/images/login_background.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;

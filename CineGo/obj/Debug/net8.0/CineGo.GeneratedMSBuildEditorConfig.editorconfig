@@ -152,12 +152,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Contact/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Error/CustomError.cshtml]
@@ -178,6 +178,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/UserAuth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/UserAuth/LoginOrRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhcTG9naW5PclJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/UserAuth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/UserAuth/VerifyOtp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhcVmVyaWZ5T3RwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Files/Codes/.Net/MVC/CineGo/CineGo/Views/_ViewImports.cshtml]

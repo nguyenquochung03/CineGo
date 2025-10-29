@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Xác thực tài khoản";
+    var emailOrPhone = ViewBag.EmailOrPhone as string ?? "";
+}
+
+<link rel="stylesheet" href="~/css/auth.css" />
+
+<div class="auth-container">
+    <div class="auth-left">
+        <h2>Xác thực tài khoản</h2>
+        <p>Bạn đang xác thực với: <b>@emailOrPhone</b></p>
+
+        <form method="post" asp-action="VerifyOtp">
+            <input type="hidden" name="emailOrPhone" value="@emailOrPhone" />
+            <div class="otp-box">
+                <input type="text" name="code" maxlength="4" placeholder="0 0 0 0" required />
+            </div>
+            <button type="submit">Xác nhận</button>
+        </form>
+
+        <form method="post" asp-action="ResendOtp" id="resendForm" class="resend-container">
+            <input type="hidden" name="emailOrPhone" value="@emailOrPhone" />
+            <button type="submit" id="resendLink" class="resend-link">
+                Nhận lại mã
+            </button>
+            <span id="countdown" class="countdown"></span>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <p class="error">@ViewBag.Error</p>
+        }
+        @if (ViewBag.Message != null)
+        {
+            <p class="success">@ViewBag.Message</p>
+        }
+    </div>
+
+    <div class="auth-right">
+        <img src="/images/login_poster.jpg" alt="Poster" />
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/auth.js")"></script>
+}

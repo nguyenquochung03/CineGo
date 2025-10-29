@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineGo.Models
 {
-    [Index(nameof(Email), IsUnique = true)]
     [Index(nameof(Phone), IsUnique = true)]
     [Index(nameof(Name))]
     [Index(nameof(Role))]
@@ -18,15 +17,13 @@ namespace CineGo.Models
         [StringLength(100, ErrorMessage = "Tên người dùng không được vượt quá 100 ký tự")]
         public string Name { get; set; } = null!;
 
-        [Required(ErrorMessage = "Email không được để trống")]
         [StringLength(150, ErrorMessage = "Email không được vượt quá 150 ký tự")]
         [EmailAddress(ErrorMessage = "Email không hợp lệ")]
-        public string Email { get; set; } = null!;
+        public string? Email { get; set; }
 
-        [Required(ErrorMessage = "Số điện thoại không được để trống")]
         [StringLength(15, ErrorMessage = "Số điện thoại không được vượt quá 15 ký tự")]
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
-        public string Phone { get; set; } = null!;
+        public string? Phone { get; set; }
 
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
         [StringLength(255, ErrorMessage = "Mật khẩu mã hóa không được vượt quá 255 ký tự")]

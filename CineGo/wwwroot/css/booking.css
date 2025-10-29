@@ -1,0 +1,209 @@
+﻿/* === Selected Info === */
+.selected-info {
+    background: rgba(220, 57, 60, 0.2);
+    border-radius: 12px;
+    color: #555;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    padding: 15px 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+}
+
+    .selected-info strong {
+        font-weight: 700;
+        color: #DC143C;
+    }
+
+/* Responsive Selected Info */
+@media (max-width: 768px) {
+    .selected-info {
+        flex-direction: column;
+        gap: 1.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .selected-info {
+        gap: 1rem;
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+}
+
+/* === Movie Section === */
+#movie-section {
+    margin-top: 30px;
+}
+
+#movie-section h5 {
+    font-weight: 700;
+    color: #FFF9F9;
+    background: linear-gradient(90deg, #FF6B80, #DC143C, #E63946);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+}
+
+    #movie-section p {
+        color: #555;
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+    }
+
+/* === Movie Item Card === */
+.movie-item {
+    background: linear-gradient(90deg, #FF6B80, #DC143C, #E63946);
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.movie-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background-color: rgba(255,255,255,0.15);
+}
+
+    .movie-item h6 {
+        font-weight: 700;
+        color: #FFF9F9;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+
+.movie-age-limit {
+    background: #DC143C;
+    border-radius: 50%;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Movie detail link icon */
+.movie-detail-link {
+    font-size: 1.6rem;
+    color: #FFD1D6;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* === Showtimes container === */
+.showtime-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Showtime card */
+.showtime-card {
+    background-color: rgba(255,255,255,0.15);
+    border: 1px solid #FFF9F9;
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: 12px;
+    min-width: 120px;
+    text-align: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.showtime-card:hover {
+    background: linear-gradient(90deg, #FF6B80, #DC143C, #E63946);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.showtime-card .text-muted {
+    font-size: 0.8rem;
+    color: #f0f0f0;
+}
+
+/* === Responsive Movie & Showtime === */
+@media (max-width: 768px) {
+    .movie-item {
+        padding: 12px 15px;
+    }
+
+    .showtime-card {
+        min-width: 100px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-item {
+        padding: 10px 12px;
+    }
+
+    .showtime-card {
+        min-width: 90px;
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* === Optional extra effect: glow hover for cards === */
+.movie-item:hover, 
+.showtime-card:hover, 
+.selected-info:hover {
+    filter: brightness(1.05) drop-shadow(0 0 6px rgba(255,255,255,0.3));
+}
+
+/* === Typography improvements === */
+.movie-item h6, .showtime-card div {
+    letter-spacing: 0.5px;
+}
+
+.movie-item a {
+    margin-left: 8px;
+}
+
+.no-data-message {
+    color: #fff;
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin: 8px 0;
+}
+
+.no-showtimes-message {
+    color: #fff;
+    font-style: italic;
+    font-size: 0.95rem;
+    text-align: center;
+    background: rgba(220, 57, 60, 0.2);
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin: 12px 0;
+    transition: all 0.3s ease;
+}
+
+    .no-showtimes-message:hover {
+        background: rgba(220, 57, 60, 0.3);
+        transform: translateY(-1px);
+    }

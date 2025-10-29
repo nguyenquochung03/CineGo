@@ -1,0 +1,229 @@
+﻿.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 900px;
+    height: 500px;
+    margin: 60px auto;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Left - Form */
+.auth-left {
+    width: 50%;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 2px solid #f2f2f2;
+    background: #fff;
+}
+
+    .auth-left h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+        text-align: center;
+        color: #DC143C;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .auth-left p {
+        text-align: center;
+        color: #444;
+        margin-bottom: 25px;
+        font-size: 15px;
+    }
+
+    .auth-left form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .auth-left input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1.5px solid #ddd;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: all 0.2s ease;
+    }
+
+        .auth-left input:focus {
+            outline: none;
+            border-color: #DC143C;
+            box-shadow: 0 0 6px rgba(220, 20, 60, 0.25);
+        }
+
+.otp-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+    .otp-box input {
+        width: 180px;
+        text-align: center;
+        font-size: 22px;
+        padding: 12px 10px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .otp-box input:focus {
+            border-color: #DC143C;
+            box-shadow: 0 0 6px rgba(220, 20, 60, 0.25);
+            outline: none;
+        }
+
+    .auth-left button {
+        width: 100%;
+        padding: 12px;
+        background: #DC143C;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .auth-left button:hover {
+            background: #b01033;
+            transform: translateY(-2px);
+        }
+
+.resend-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.auth-left button.resend-link {
+    all: unset;
+    color: #DC143C;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0;
+    font-family: inherit;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+    .auth-left button.resend-link:hover {
+        color: #b01033;
+        text-decoration: underline;
+    }
+
+    .auth-left button.resend-link:focus {
+        outline: none;
+    }
+
+    .auth-left button.resend-link.disabled {
+        color: #888;
+        pointer-events: none;
+        text-decoration: none;
+    }
+
+.countdown {
+    color: #DC143C;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.error {
+    color: #DC143C;
+    background: rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.success {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.2);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Right - Poster */
+.auth-right {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+    .auth-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* tự fill khung hình */
+        display: block;
+    }
+
+/* Back link (Quay lại) */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: #DC143C;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: all 0.25s ease;
+}
+
+    .back-link i {
+        font-size: 14px;
+        transition: transform 0.25s ease;
+    }
+
+    .back-link:hover {
+        color: #b01033;
+        text-decoration: underline;
+    }
+
+        .back-link:hover i {
+            transform: translateX(-3px);
+        }
+
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .auth-left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #f2f2f2;
+        padding: 30px 25px;
+    }
+
+    .auth-right {
+        width: 100%;
+        height: 250px;
+    }
+
+    .otp-box input {
+        width: 130px;
+        font-size: 20px;
+        letter-spacing: 6px;
+    }
+}

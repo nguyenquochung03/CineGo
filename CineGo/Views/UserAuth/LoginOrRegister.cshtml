@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập hoặc tạo tài khoản";
+}
+
+<link rel="stylesheet" href="~/css/auth.css" />
+
+<div class="auth-container">
+    <div class="auth-left">
+        <h2>Đăng nhập hoặc tạo tài khoản</h2>
+
+        @* Hiển thị thông báo lỗi *@
+        @if (ViewBag.Error != null)
+        {
+            <p class="error">@ViewBag.Error</p>
+        }
+
+        <form method="post" asp-action="CheckUserExists">
+            <input type="text" name="emailOrPhone" placeholder="Email hoặc SĐT"
+                   value="@(ViewBag.EmailOrPhone ?? "")" required />
+            <button type="submit">Tiếp tục</button>
+        </form>
+    </div>
+
+    <div class="auth-right">
+        <img src="/images/login_poster.jpg" alt="Poster" />
+    </div>
+</div>

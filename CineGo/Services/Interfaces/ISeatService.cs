@@ -11,5 +11,6 @@ namespace CineGo.Services.Interfaces
         Task<ApiResponse> CreateAsync(SeatDTO seatDto);
         Task<ApiResponse> UpdateAsync(SeatDTO seatDto);
         Task<ApiResponse> DeleteAsync(int id);
+        Task<ApiResponse> CountBookedSeatsAsync(int showtimeId);
     }
 }

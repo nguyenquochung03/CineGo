@@ -781,7 +781,6 @@ namespace CineGo.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -799,7 +798,6 @@ namespace CineGo.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
@@ -812,13 +810,11 @@ namespace CineGo.Migrations
 
                     b.HasIndex("CreatedAt");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
                     b.HasIndex("Name");
 
                     b.HasIndex("Phone")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Phone] IS NOT NULL");
 
                     b.HasIndex("Role");
 

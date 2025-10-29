@@ -22,6 +22,8 @@ namespace CineGo.Extensions
             services.AddScoped<IShowtimePriceService, ShowtimePriceService>();
             services.AddScoped<ITheaterShowtimeService, TheaterShowtimeService>();
             services.AddScoped<IPromoCodeService, PromoCodeService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<ISmsService, SmsService>();
         }
     }
 }

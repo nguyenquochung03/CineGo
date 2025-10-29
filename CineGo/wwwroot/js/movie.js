@@ -50,9 +50,14 @@ document.addEventListener('click', function (e) {
             window.location.href = `/MovieDetail/Detail/${movieId}`;
         }
     }
+
+    if (e.target.classList.contains('btn-ticket')) {
+        window.location.href = `/Booking/Index`;
+    }
 });
 
 function loadMovies(pageSize) {
+    showLoading();
     let url = currentTab === 'nowShowing' ? '/Movie/NowShowing' : '/Movie/ComingSoon';
 
     fetch(`${url}?page=${currentPage}&pageSize=${pageSize}`)
@@ -65,24 +70,29 @@ function loadMovies(pageSize) {
                     let firstPoster = movie.posters.length > 0 ? movie.posters[0].url : '/images/default-movie.png';
                     let releaseDate = new Date(movie.releaseDate).toLocaleDateString('vi-VN');
 
-                    let html = `
-                        <div class="movie-card">
-                            <img src="${firstPoster}" alt="${movie.title}" />
-                            <div class="movie-overlay">
-                                <button class="btn-movie-action btn-ticket">Đặt vé</button>
-                                <button class="btn-movie-action btn-detail" data-id="${movie.id}">Chi tiết</button>
-                            </div>
-                            <div class="movie-title" title="${movie.title}">
-                                <span class="movie-age age-${movie.ageLimit}">${movie.ageLimit}</span>
-                                ${movie.title}
-                            </div>
-                            <div class="movie-info">${movie.runtime} phút | ${releaseDate}</div>
-                        </div>
-                    `;
-                    container.insertAdjacentHTML('beforeend', html);
+                    //let html = `
+                    //    <div class="movie-card">
+                    //        <div class="poster-wrapper">
+                    //            <img src="${firstPoster}" alt="${movie.title}" />
+                    //            <div class="movie-overlay">
+                    //                ${currentTab === 'nowShowing'
+                    //        ? `<button class="btn-movie-action btn-ticket">Đặt vé</button>`
+                    //        : ''
+                    //                 }
+                    //                <button class="btn-movie-action btn-detail" data-id="${movie.id}">Chi tiết</button>
+                    //            </div>
+                    //        </div>
+
+                    //        <div class="movie-title" title="${movie.title}">
+                    //            <span class="movie-age age-${movie.ageLimit}">${movie.ageLimit}</span>
+                    //            ${movie.title}
+                    //        </div>
+                    //        <div class="movie-info">${movie.runtime} phút | ${releaseDate}</div>
+                    //    </div>
+                    //`;
+                    //container.insertAdjacentHTML('beforeend', html);
                 });
 
-                // Ẩn nút khi hết trang
                 if (currentPage < res.data.totalPages) {
                     document.getElementById('btnLoadMore').style.display = 'inline-block';
                 } else {
@@ -97,5 +107,8 @@ function loadMovies(pageSize) {
         })
         .catch(err => {
             console.error('Error loading movies:', err);
+        })
+        .finally(() => {
+            hideLoading();
         });
 }

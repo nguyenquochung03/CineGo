@@ -455,5 +455,37 @@ namespace CineGo.Services.Implementations
 
             return ApiResponse.SuccessResponse(result);
         }
+
+        public async Task<ApiResponse> GetByDateAndCinemaAsync(DateTime date, int cinemaId)
+        {
+            // Lấy tất cả phim có suất chiếu trong rạp và ngày chỉ định
+            var movies = await _context.Movies
+                .Include(m => m.Showtimes)
+                    .ThenInclude(s => s.TheaterShowtimes)
+                        .ThenInclude(ts => ts.Theater)
+                .Where(m => m.Showtimes.Any(s =>
+                    s.Date.Date == date.Date &&
+                    s.TheaterShowtimes.Any(ts => ts.Theater.CinemaId == cinemaId)))
+                .Distinct()
+                .ToListAsync();
+
+            if (!movies.Any())
+            {
+                return ApiResponse.ErrorResponse(404, "Không có phim nào chiếu ở rạp này trong ngày đã chọn.");
+            }
+
+            var movieDtos = movies.Select(m => new
+            {
+                m.Id,
+                m.Title,
+                m.ReleaseDate,
+                m.Rating,
+                m.AgeLimit,
+                m.Runtime,
+                m.Slug
+            }).ToList();
+
+            return ApiResponse.SuccessResponse(movieDtos);
+        }
     }
 }

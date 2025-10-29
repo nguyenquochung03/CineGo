@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Đăng ký";
+    var emailOrPhone = ViewBag.EmailOrPhone as string ?? "";
+}
+
+<link rel="stylesheet" href="~/css/auth.css" />
+
+<div class="auth-container">
+    <div class="auth-left">
+        <a href="@Url.Action("Index", "UserAuth", new { emailOrPhone = emailOrPhone })" class="back-link">
+            <i class="fa fa-arrow-left"></i> Quay lại
+        </a>
+
+        <h2>Tạo tài khoản</h2>
+        <form method="post" asp-action="Register">
+            <input type="text" name="Name" placeholder="Tên người dùng" required />
+            <input type="hidden" name="Email" value="@(emailOrPhone.Contains('@') ? emailOrPhone : null)" />
+            <input type="hidden" name="Phone" value="@(emailOrPhone.Contains('@') ? null : emailOrPhone)" />
+            <input type="password" name="Password" placeholder="Mật khẩu" required />
+            <button type="submit">Đăng ký</button>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <p class="error">@ViewBag.Error</p>
+        }
+    </div>
+
+    <div class="auth-right">
+        <img src="/images/login_poster.jpg" alt="Poster" />
+    </div>
+</div>

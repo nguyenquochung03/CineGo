@@ -167,5 +167,29 @@ namespace CineGo.Services.Implementations
                 return ApiResponse.ErrorResponse(500, $"Lỗi khi xóa ghế: {ex.Message}");
             }
         }
+
+        public async Task<ApiResponse> CountBookedSeatsAsync(int showtimeId)
+        {
+            // Lấy tất cả SeatStatuses của suất chiếu có status "Đã đặt"
+            var bookedCount = await _context.SeatStatuses
+                .Where(ss => ss.ShowtimeId == showtimeId && ss.Status == "Đã đặt")
+                .CountAsync();
+
+            // Lấy tổng số ghế trong các theater của suất chiếu
+            var totalSeats = await _context.TheaterShowtimes
+                .Where(ts => ts.ShowtimeId == showtimeId)
+                .SelectMany(ts => ts.Theater.Seats)
+                .CountAsync();
+
+            var data = new
+            {
+                ShowtimeId = showtimeId,
+                BookedSeats = bookedCount,
+                TotalSeats = totalSeats,
+                PercentBooked = totalSeats > 0 ? (double)bookedCount / totalSeats * 100 : 0
+            };
+
+            return ApiResponse.SuccessResponse(data);
+        }
     }
 }

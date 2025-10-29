@@ -398,6 +398,102 @@ namespace CineGo.Services.Implementations
             return ApiResponse.SuccessResponse(dtos);
         }
 
+        public async Task<ApiResponse> GetByDateAndCinemaAsync(DateTime date, int cinemaId)
+        {
+            var showtimes = await _context.Showtimes
+                .Include(s => s.Movie)
+                .Include(s => s.PricingRule)
+                .Include(s => s.TheaterShowtimes)
+                    .ThenInclude(ts => ts.Theater)
+                .Where(s => s.Date.Date == date.Date &&
+                            s.TheaterShowtimes.Any(ts => ts.Theater.CinemaId == cinemaId))
+                .OrderBy(s => s.StartTime)
+                .ToListAsync();
+
+            if (!showtimes.Any())
+                return ApiResponse.ErrorResponse(404, "Không tìm thấy suất chiếu cho rạp này trong ngày đã chọn.");
+
+            var dtos = showtimes.Select(s => MapToDTO(s)).ToList();
+
+            return ApiResponse.SuccessResponse(dtos);
+        }
+
+        public async Task<ApiResponse> GetByMovieIdAsync(int movieId)
+        {
+            var showtimes = await _context.Showtimes
+                .Include(s => s.Movie)
+                .Include(s => s.PricingRule)
+                .Include(s => s.TheaterShowtimes)
+                    .ThenInclude(ts => ts.Theater)
+                .Include(s => s.ShowtimePrices)
+                .Where(s => s.MovieId == movieId)
+                .OrderBy(s => s.Date)
+                .ThenBy(s => s.StartTime)
+                .ToListAsync();
+
+            if (!showtimes.Any())
+                return ApiResponse.ErrorResponse(404, $"Không tìm thấy suất chiếu cho phim có Id = {movieId}.");
+
+            var dtos = showtimes.Select(s => new ShowtimeDTO
+            {
+                Id = s.Id,
+                MovieId = s.MovieId,
+                MovieTitle = s.Movie?.Title ?? "",
+                Date = s.Date,
+                StartTime = s.StartTime,
+                EndTime = s.EndTime,
+                Format = s.Format,
+                PricingRuleId = s.PricingRuleId,
+                IsWeekend = s.IsWeekend,
+            }).ToList();
+
+            return ApiResponse.SuccessResponse(dtos);
+        }
+
+        public async Task<ApiResponse> GetShowtimesByDateAndMovieAsync(DateTime date, int movieId)
+        {
+            try
+            {
+                var targetDate = date.Date;
+
+                var showtimes = await _context.Showtimes
+                    .Include(s => s.Movie)
+                    .Include(s => s.TheaterShowtimes)
+                        .ThenInclude(ts => ts.Theater)
+                            .ThenInclude(t => t.Cinema)
+                    .Where(s =>
+                        s.MovieId == movieId &&
+                        s.Date.Date == targetDate)
+                    .OrderBy(s => s.StartTime)
+                    .Select(s => new
+                    {
+                        s.Id,
+                        s.MovieId,
+                        MovieTitle = s.Movie.Title,
+                        Theaters = s.TheaterShowtimes.Select(ts => new
+                        {
+                            ts.Theater.Id,
+                            TheaterName = ts.Theater.Name,
+                            CinemaName = ts.Theater.Cinema.Name
+                        }),
+                        s.Date,
+                        s.StartTime,
+                        s.EndTime,
+                        s.Format
+                    })
+                    .ToListAsync();
+
+                if (showtimes == null || !showtimes.Any())
+                    return ApiResponse.ErrorResponse(404, "Không tìm thấy suất chiếu nào cho phim và ngày đã chọn.");
+
+                return ApiResponse.SuccessResponse(showtimes);
+            }
+            catch (Exception ex)
+            {
+                return ApiResponse.ErrorResponse(500, $"Lỗi khi lấy suất chiếu: {ex.Message}");
+            }
+        }
+
         // -------------------- Private helper to map Showtime to DTO --------------------
         private ShowtimeDTO MapToDTO(Showtime showtime)
         {

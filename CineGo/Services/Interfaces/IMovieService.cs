@@ -13,5 +13,6 @@ namespace CineGo.Services.Interfaces
         Task<ApiResponse> SearchByTitleAsync(string title, int page = 1, int pageSize = 10);
         Task<ApiResponse> GetNowShowingAsync(int page = 1, int pageSize = 10);
         Task<ApiResponse> GetComingSoonAsync(int page = 1, int pageSize = 10);
+        Task<ApiResponse> GetByDateAndCinemaAsync(DateTime date, int cinemaId);
     }
 }

@@ -13,5 +13,8 @@ namespace CineGo.Services.Interfaces
         Task<ApiResponse> GetByDateAsync(DateTime date);
         Task<ApiResponse> GetByDateTimeRangeAsync(DateTime date, TimeSpan start, TimeSpan end);
         Task<ApiResponse> GetByMovieNameAsync(string movieName);
+        Task<ApiResponse> GetByDateAndCinemaAsync(DateTime date, int cinemaId);
+        Task<ApiResponse> GetByMovieIdAsync(int movieId);
+        Task<ApiResponse> GetShowtimesByDateAndMovieAsync(DateTime date, int movieId);
     }
 }

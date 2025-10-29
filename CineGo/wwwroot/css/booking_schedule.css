@@ -1,0 +1,189 @@
+﻿/* 🌈 Container lịch 7 ngày */
+.week-calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    user-select: none;
+    width: 100vw;
+    max-width: 100%;
+    padding: 20px 10px;
+    background: linear-gradient(90deg, #FF6B80, #DC143C, #E63946);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    color: #fff;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin-bottom: 1.5rem;
+}
+
+    /* 🎚 Thanh cuộn */
+    .week-calendar::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .week-calendar::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 3px;
+    }
+
+    .week-calendar::-webkit-scrollbar-track {
+        background-color: rgba(255,255,255,0.15);
+    }
+
+/* 📅 Dòng tháng */
+.month-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 12px;
+    text-transform: uppercase;
+    min-width: 700px;
+}
+
+/* 🔢 Dòng ngày */
+.day-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    min-width: 700px;
+}
+
+/* 🗓 Cell tháng */
+.month-cell {
+    flex: 1 0 100px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    margin: 0 3px;
+    box-shadow: inset 0 0 6px rgba(255,255,255,0.2);
+}
+
+/* ☀️ Cell ngày */
+.day-cell {
+    flex: 1 0 100px;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: all 0.25s ease;
+    margin: 0 3px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
+}
+
+    .day-cell:hover {
+        transform: translateY(-4px);
+        background-color: rgba(255,255,255,0.25);
+        box-shadow: 0 6px 16px rgba(255,255,255,0.3);
+    }
+
+    /* 🕓 Thứ */
+    .day-cell .weekday {
+        font-size: 13px;
+        color: #fff;
+        opacity: 0.9;
+        margin-bottom: 8px;
+        letter-spacing: 0.3px;
+    }
+
+    /* 🔘 Số ngày */
+    .day-cell .day-number {
+        font-size: 20px;
+        font-weight: 700;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        display: inline-block;
+        border-radius: 50%;
+        color: #fff;
+        transition: all 0.25s ease;
+    }
+
+    /* ❤️ Ngày được chọn */
+    .day-cell.selected .day-number {
+        background-color: #fff;
+        color: #DC143C;
+        font-weight: 800;
+        transform: scale(1.15);
+        box-shadow: 0 0 14px rgba(255,255,255,0.9);
+    }
+
+/* 📱 RESPONSIVE SECTION */
+
+/* Tablet (từ 768px trở xuống) */
+@media (max-width: 768px) {
+    .week-calendar {
+        padding: 16px 6px;
+        border-radius: 12px;
+        gap: 12px;
+    }
+
+    .month-row {
+        font-size: 14px;
+        min-width: 600px;
+    }
+
+    .day-row {
+        min-width: 600px;
+    }
+
+    .month-cell, .day-cell {
+        flex: 1 0 85px;
+        margin: 0 2px;
+    }
+
+        .day-cell .day-number {
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            font-size: 18px;
+        }
+
+        .day-cell .weekday {
+            font-size: 12px;
+        }
+}
+
+/* Mobile (từ 480px trở xuống) */
+@media (max-width: 480px) {
+    .week-calendar {
+        padding: 14px 4px;
+        border-radius: 10px;
+        gap: 10px;
+    }
+
+    .month-row {
+        font-size: 13px;
+        min-width: 500px;
+    }
+
+    .day-row {
+        min-width: 500px;
+    }
+
+    .month-cell, .day-cell {
+        flex: 1 0 70px;
+        margin: 0 1.5px;
+        padding: 8px 0;
+    }
+
+        .day-cell .day-number {
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            font-size: 16px;
+        }
+
+        .day-cell .weekday {
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+}
