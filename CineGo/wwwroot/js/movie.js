@@ -70,27 +70,27 @@ function loadMovies(pageSize) {
                     let firstPoster = movie.posters.length > 0 ? movie.posters[0].url : '/images/default-movie.png';
                     let releaseDate = new Date(movie.releaseDate).toLocaleDateString('vi-VN');
 
-                    //let html = `
-                    //    <div class="movie-card">
-                    //        <div class="poster-wrapper">
-                    //            <img src="${firstPoster}" alt="${movie.title}" />
-                    //            <div class="movie-overlay">
-                    //                ${currentTab === 'nowShowing'
-                    //        ? `<button class="btn-movie-action btn-ticket">Đặt vé</button>`
-                    //        : ''
-                    //                 }
-                    //                <button class="btn-movie-action btn-detail" data-id="${movie.id}">Chi tiết</button>
-                    //            </div>
-                    //        </div>
+                    let html = `
+                        <div class="movie-card">
+                            <div class="poster-wrapper">
+                                <img src="${firstPoster}" alt="${movie.title}" />
+                                <div class="movie-overlay">
+                                    ${currentTab === 'nowShowing'
+                            ? `<button class="btn-movie-action btn-ticket">Đặt vé</button>`
+                            : ''
+                                     }
+                                    <button class="btn-movie-action btn-detail" data-id="${movie.id}">Chi tiết</button>
+                                </div>
+                            </div>
 
-                    //        <div class="movie-title" title="${movie.title}">
-                    //            <span class="movie-age age-${movie.ageLimit}">${movie.ageLimit}</span>
-                    //            ${movie.title}
-                    //        </div>
-                    //        <div class="movie-info">${movie.runtime} phút | ${releaseDate}</div>
-                    //    </div>
-                    //`;
-                    //container.insertAdjacentHTML('beforeend', html);
+                            <div class="movie-title" title="${movie.title}">
+                                <span class="movie-age age-${movie.ageLimit}">${movie.ageLimit}</span>
+                                ${movie.title}
+                            </div>
+                            <div class="movie-info">${movie.runtime} phút | ${releaseDate}</div>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', html);
                 });
 
                 if (currentPage < res.data.totalPages) {

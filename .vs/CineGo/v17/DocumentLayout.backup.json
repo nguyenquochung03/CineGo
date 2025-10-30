@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\movie.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\movie.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\views\\movielist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\movielist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\booking.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\booking.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\booking_choose_cinema.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\booking_choose_cinema.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\js\\movie.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\js\\movie.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\booking.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\booking.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\booking_schedule.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\booking_schedule.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\booking.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\booking.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\wwwroot\\css\\booking_choose_cinema.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|solutionrelative:cinego\\wwwroot\\css\\booking_choose_cinema.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60B31D86-CAA3-4678-9EEA-91C9CD861375}|CineGo\\CineGo.csproj|c:\\files\\codes\\.net\\mvc\\cinego\\cinego\\services\\implementations\\regionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -96,76 +96,24 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\MovieList\\Index.cshtml",
-              "RelativeDocumentMoniker": "CineGo\\Views\\MovieList\\Index.cshtml",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\MovieList\\Index.cshtml",
-              "RelativeToolTip": "CineGo\\Views\\MovieList\\Index.cshtml",
-              "ViewState": "AgIAADsBAAAAAAAAAAAAAE0BAAA5AAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Booking\\Index.cshtml",
+              "RelativeDocumentMoniker": "CineGo\\Views\\Booking\\Index.cshtml",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Views\\Booking\\Index.cshtml",
+              "RelativeToolTip": "CineGo\\Views\\Booking\\Index.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAADUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-29T10:06:45.908Z",
+              "WhenOpened": "2025-10-30T03:39:43.075Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "movie.js",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\movie.js",
-              "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\movie.js",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\movie.js",
-              "RelativeToolTip": "CineGo\\wwwroot\\js\\movie.js",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAowEgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-29T09:56:28.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "booking.css",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking.css",
-              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\booking.css",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking.css",
-              "RelativeToolTip": "CineGo\\wwwroot\\css\\booking.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-27T07:49:01.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "booking_schedule.css",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_schedule.css",
-              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\booking_schedule.css",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_schedule.css",
-              "RelativeToolTip": "CineGo\\wwwroot\\css\\booking_schedule.css",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAALEAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-27T07:45:45.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "booking_choose_cinema.css",
-              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_choose_cinema.css",
-              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\booking_choose_cinema.css",
-              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_choose_cinema.css",
-              "RelativeToolTip": "CineGo\\wwwroot\\css\\booking_choose_cinema.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-27T01:27:19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "booking.js",
               "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\booking.js",
               "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\booking.js",
               "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\booking.js",
               "RelativeToolTip": "CineGo\\wwwroot\\js\\booking.js",
-              "ViewState": "AgIAANsAAAAAAAAAAAAgwPkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAgwLMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-10-27T01:27:48.895Z",
               "EditorCaption": ""
@@ -173,6 +121,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "movie.js",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\movie.js",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\js\\movie.js",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\js\\movie.js",
+              "RelativeToolTip": "CineGo\\wwwroot\\js\\movie.js",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAowGMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-29T09:56:28.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "booking.css",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking.css",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\booking.css",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking.css",
+              "RelativeToolTip": "CineGo\\wwwroot\\css\\booking.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-27T07:49:01.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "booking_schedule.css",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_schedule.css",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\booking_schedule.css",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_schedule.css",
+              "RelativeToolTip": "CineGo\\wwwroot\\css\\booking_schedule.css",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAALEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-27T07:45:45.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "booking_choose_cinema.css",
+              "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_choose_cinema.css",
+              "RelativeDocumentMoniker": "CineGo\\wwwroot\\css\\booking_choose_cinema.css",
+              "ToolTip": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\wwwroot\\css\\booking_choose_cinema.css",
+              "RelativeToolTip": "CineGo\\wwwroot\\css\\booking_choose_cinema.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-27T01:27:19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "BookingController.cs",
               "DocumentMoniker": "C:\\Files\\Codes\\.Net\\MVC\\CineGo\\CineGo\\Controllers\\BookingController.cs",
               "RelativeDocumentMoniker": "CineGo\\Controllers\\BookingController.cs",
@@ -180,8 +176,7 @@
               "RelativeToolTip": "CineGo\\Controllers\\BookingController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAmwCQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T01:24:43.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T01:24:43.594Z"
             },
             {
               "$type": "Document",

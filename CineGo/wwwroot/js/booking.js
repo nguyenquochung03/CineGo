@@ -1,18 +1,17 @@
 ﻿const monthRow = document.getElementById('month-row');
 const dayRow = document.getElementById('day-row');
-
-// Region → City → Cinema logic
 const regionList = document.getElementById("region-list");
 const cityList = document.getElementById("city-list");
 const cinemaList = document.getElementById("cinema-list");
+const movieList = document.getElementById("movie-list");
 
 let selectedRegion = null;
 let selectedCity = null;
 let selectedCinema = null;
-
 const today = new Date();
 let selectedDate = today;
 
+// ====== Helper ======
 function formatWeekday(date) {
     return date.toLocaleDateString('vi-VN', { weekday: 'short' });
 }
@@ -20,11 +19,15 @@ function formatWeekday(date) {
 function formatMonth(date, isToday) {
     if (isToday || date.getDate() === 1) {
         return `Tháng ${date.getMonth() + 1} Năm ${date.getFullYear()}`;
-    } else {
-        return '';
-    }
+    } else return '';
 }
 
+function formatTime(timeStr) {
+    const [h, m] = timeStr.split(':');
+    return `${h}:${m}`;
+}
+
+// ====== Calendar ======
 function renderCalendar() {
     monthRow.innerHTML = '';
     dayRow.innerHTML = '';
@@ -33,18 +36,16 @@ function renderCalendar() {
         const d = new Date(today);
         d.setDate(today.getDate() + i);
 
-        // Month row
+        // Month
         const monthCell = document.createElement('div');
         monthCell.className = 'month-cell';
         monthCell.textContent = formatMonth(d, i === 0);
         monthRow.appendChild(monthCell);
 
-        // Day row
+        // Day
         const dayCell = document.createElement('div');
         dayCell.className = 'day-cell';
-        if (d.toDateString() === selectedDate.toDateString()) {
-            dayCell.classList.add('selected');
-        }
+        if (d.toDateString() === selectedDate.toDateString()) dayCell.classList.add('selected');
 
         const weekday = document.createElement('div');
         weekday.className = 'weekday';
@@ -57,26 +58,23 @@ function renderCalendar() {
         dayCell.appendChild(weekday);
         dayCell.appendChild(dayNumber);
 
-        // click chọn ngày
         dayCell.addEventListener('click', () => {
             selectedDate = d;
             renderCalendar();
 
-            if (typeof loadMovies === "function" && selectedCinema) loadMovies();
-
-            // cập nhật hiển thị ngày đã chọn
             const dateSpan = document.querySelector('#selected-date span');
             dateSpan.textContent = d.toLocaleDateString('vi-VN', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' });
+
+            if (selectedCinema) loadMovies();
         });
 
         dayRow.appendChild(dayCell);
     }
 }
 
-// lần đầu render
 renderCalendar();
 
-// Khi click chọn region
+// ====== Region → City → Cinema ======
 regionList.querySelectorAll(".region-item").forEach(item => {
     item.addEventListener("click", async () => {
         regionList.querySelectorAll(".region-item").forEach(r => r.classList.remove("active"));
@@ -93,12 +91,12 @@ async function renderCities(cities, autoSelectFirst = false) {
     cityList.innerHTML = "";
     cinemaList.innerHTML = "";
 
-    if (!cities || cities.length === 0) {
-        cityList.innerHTML = `<p class="no-data-message">Không có thành phố nào trong vùng này</p>`;
+    if (!cities?.length) {
+        cityList.innerHTML = `<p class="no-city-msg">Không có thành phố nào trong vùng này</p>`;
         return;
     }
 
-    cities.forEach((c, index) => {
+    cities.forEach((c, i) => {
         const div = document.createElement("div");
         div.classList.add("city-item");
         div.textContent = c.name;
@@ -116,25 +114,22 @@ async function renderCities(cities, autoSelectFirst = false) {
         cityList.appendChild(div);
     });
 
-    // 🔥 Nếu có city và được phép auto select → chọn city đầu tiên luôn
     if (autoSelectFirst && cities.length > 0) {
         const firstCity = cityList.querySelector(".city-item");
-        if (firstCity) {
-            firstCity.classList.add("active");
-            selectedCity = cities[0].id;
+        firstCity.classList.add("active");
+        selectedCity = cities[0].id;
 
-            const res = await fetch(`/Booking/GetCinemasByCity?cityId=${selectedCity}`);
-            const cinemas = await res.json();
-            renderCinemas(cinemas);
-        }
+        const res = await fetch(`/Booking/GetCinemasByCity?cityId=${selectedCity}`);
+        const cinemas = await res.json();
+        renderCinemas(cinemas);
     }
 }
 
 function renderCinemas(cinemas) {
     cinemaList.innerHTML = "";
 
-    if (!cinemas || cinemas.length === 0) {
-        cinemaList.innerHTML = `<p class="no-data-message">Không có rạp nào trong thành phố này</p>`;
+    if (!cinemas?.length) {
+        cinemaList.innerHTML = `<p class="no-cinema-msg">Không có rạp nào trong thành phố này</p>`;
         return;
     }
 
@@ -142,33 +137,26 @@ function renderCinemas(cinemas) {
         const div = document.createElement("div");
         div.classList.add("cinema-card");
         div.textContent = c.name;
+
         div.addEventListener("click", () => {
             document.querySelectorAll(".cinema-card").forEach(ci => ci.classList.remove("active"));
             div.classList.add("active");
             selectedCinema = c.id;
 
-            // cập nhật hiển thị rạp đã chọn
             const cinemaSpan = document.querySelector('#selected-cinema span');
             cinemaSpan.textContent = c.name;
 
-            if (typeof loadMovies === "function") loadMovies();
+            loadMovies();
         });
 
         cinemaList.appendChild(div);
     });
 }
 
-// 🧠 Khi trang load → tự chọn region đầu tiên và load city + cinema đầu tiên
+// ====== On load ======
 document.addEventListener("DOMContentLoaded", async () => {
-    // Movie list mặc định khi chưa chọn rạp
-    const movieList = document.getElementById("movie-list");
-    movieList.innerHTML = `
-        <p class="text-center text-muted fst-italic">
-            Không có lịch chiếu phù hợp. Vui lòng chọn rạp.
-        </p>
-    `;
+    movieList.innerHTML = `<p class="no-schedule-msg">Không có lịch chiếu phù hợp. Vui lòng chọn rạp.</p>`;
 
-    // Tự chọn region đầu tiên và load city + cinema đầu tiên
     const firstRegion = regionList.querySelector(".region-item");
     if (firstRegion) {
         firstRegion.classList.add("active");
@@ -179,28 +167,43 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderCities(cities, true);
     }
 
-    // Cập nhật hiển thị ngày đã chọn
     const dateSpan = document.querySelector('#selected-date span');
-    dateSpan.textContent = selectedDate.toLocaleDateString('vi-VN', {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'numeric',
-        year: 'numeric'
-    });
+    dateSpan.textContent = selectedDate.toLocaleDateString('vi-VN', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' });
 });
 
+// ====== Load Movies ======
+async function loadMovies() {
+    if (!selectedCinema) {
+        movieList.innerHTML = `<p class="no-schedule-msg">Không có lịch chiếu phù hợp. Vui lòng chọn rạp.</p>`;
+        return;
+    }
+
+    movieList.innerHTML = `
+        <div class="loading-msg text-center py-4">
+            <i class="fas fa-spinner fa-spin me-2"></i> Đang tải danh sách phim...
+        </div>
+    `;
+
+    try {
+        const res = await fetch(`/Booking/GetMoviesByCinemaAndDate?cinemaId=${selectedCinema}&date=${selectedDate.toISOString()}`);
+        const movies = await res.json();
+        await renderMovies(movies);
+    } catch (err) {
+        console.error("Lỗi khi load movies:", err);
+        movieList.innerHTML = `<p class="text-center text-danger fst-italic">Đã xảy ra lỗi khi tải phim. Vui lòng thử lại sau.</p>`;
+    }
+}
 
 async function renderMovies(movies) {
-    const movieList = document.getElementById("movie-list");
     movieList.innerHTML = "";
 
-    // Nếu chưa chọn rạp
     if (!selectedCinema) {
-        movieList.innerHTML = `
-            <p class="text-center text-muted fst-italic">
-                Không có lịch chiếu phù hợp. Vui lòng chọn rạp.
-            </p>
-        `;
+        movieList.innerHTML = `<p class="no-schedule-msg">Không có lịch chiếu phù hợp. Vui lòng chọn rạp.</p>`;
+        return;
+    }
+
+    if (!movies.length) {
+        movieList.innerHTML = `<p class="no-schedule-cinema-msg">Không có lịch chiếu phù hợp tại rạp này.</p>`;
         return;
     }
 
@@ -212,11 +215,12 @@ async function renderMovies(movies) {
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h6 class="fw-bold">${m.ageLimit}+ ${m.title}</h6>
                 <a href="/Movie/Detail/${m.slug}" class="movie-detail-link">
-                    <i class="fas fa-chevron-right"></i>
+                    <i class="fas fa-circle-play"></i>
                 </a>
             </div>
             <div class="showtime-list d-flex flex-wrap gap-2" id="showtime-${m.id}"></div>
         `;
+
         movieList.appendChild(div);
 
         const res = await fetch(`/Booking/GetShowtimesByMovieAndDate?movieId=${m.id}&date=${selectedDate.toISOString()}`);
@@ -231,19 +235,11 @@ async function renderMovies(movies) {
             stDiv.classList.add("showtime-card", "p-2", "border", "rounded");
             stDiv.innerHTML = `
                 <div class="small fw-bold">${s.theaters[0].theaterName}</div>
-                <div>${s.startTime}</div>
+                <div>${formatTime(s.startTime)}</div>
                 <div class="text-muted small">${seat.bookedSeats}/${seat.totalSeats} ghế</div>
             `;
+
             showtimeContainer.appendChild(stDiv);
         }
-    }
-
-    // Nếu có rạp nhưng không có phim hoặc lịch chiếu
-    if (movies.length === 0) {
-        movieList.innerHTML = `
-            <p class="text-center text-muted fst-italic">
-                Không có lịch chiếu phù hợp tại rạp này.
-            </p>
-        `;
     }
 }
